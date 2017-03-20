@@ -1,0 +1,64 @@
+﻿[
+	{
+		"job-name": "My Job1",
+		"job-type": "Hangfire.Topshelf.Jobs.MyJob1, Hangfire.Topshelf",
+		"cron-expression": "*/1 * * * *",
+		"timezone": "China Standard Time",
+		"queue": "jobs"
+	},
+	{
+		"job-name": "My Job2",
+		"job-type": "Hangfire.Topshelf.Jobs.MyJob2, Hangfire.Topshelf",
+		"cron-expression": "*/5 * * * *",
+		"job-data": {
+			"IntVal": 1,
+			"StringVal": "abcdef",
+			"BooleanVal": true,
+			"SimpleObject": {
+				"Name": "Foo",
+				"Age": 100
+			}
+		}
+	},
+  {
+    "job-name": "Long Running Job",
+    "job-type": "Hangfire.Topshelf.Jobs.LongRunningJob, Hangfire.Topshelf",
+    "cron-expression": "*/2 * * * *",
+    "job-data": {
+      "RunningTimes": 300
+    },
+    {
+      "job-name": "計算目錄",
+      "job-type": "Hangfire.Topshelf.Jobs.CalcSpaceJob, Hangfire.Topshelf",
+      "cron-expression": "*/1 * * * *",
+      // "cron-expression": "0 0 5 1/1 * ", 每日5點執行
+      "queue": "jobs",
+      "job-data": {
+        "Type": "Folder", // D
+        "Drive": "C",
+        "FullPath": "D:\\30_Code\\Project_Case\\CCM.Hangfire.Topshelf\\Hangfire.Topshelf.tests\\obj",
+        "FileName": "",
+        "searchPattern": "*.*"
+      },
+      {
+        "job-name": "計算檔案",
+        "job-type": "Hangfire.Topshelf.Jobs.CalcSpaceJob, Hangfire.Topshelf",
+        "cron-expression": "*/1 * * * *",
+        // "cron-expression": "0 0 5 1/1 * ", 每日5點執行
+        "queue": "jobs",
+        "job-data": {
+          "FileName": ""
+        },
+        {
+          "job-name": "計算碟區",
+          "job-type": "Hangfire.Topshelf.Jobs.CalcSpaceJob, Hangfire.Topshelf",
+          "cron-expression": "*/1 * * * *",
+          // "cron-expression": "0 0 5 1/1 * ", 每日5點執行
+          "queue": "jobs",
+          "job-data": {
+            "Drive": "C"
+          }
+
+
+        }
+        ]

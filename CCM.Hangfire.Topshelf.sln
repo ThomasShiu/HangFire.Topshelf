@@ -1,0 +1,68 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "monolithic", "monolithic", "{2936A1CD-5F9A-4963-814A-9470C3DF0335}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{173B08DF-358C-4F4C-B259-A8A875C106AE}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "HangFire.Autofac", "Hangfire.Autofac\HangFire.Autofac\HangFire.Autofac.xproj", "{E187DFD9-90BC-4753-93BE-C1B018E06B67}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1152976E-0CB3-4A59-BE15-0E0F7142E11B}"
+	ProjectSection(SolutionItems) = preProject
+		appveyor.yml = appveyor.yml
+		global.json = global.json
+		README.md = README.md
+		test.bat = test.bat
+	EndProjectSection
+	ProjectSection(FolderGlobals) = preProject
+		__JSONSchema = 
+	EndProjectSection
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Hangfire.RecurringJobExtensions", "Hangfire.RecurringJobExtensions\src\Hangfire.RecurringJobExtensions\Hangfire.RecurringJobExtensions.xproj", "{D75DFE5D-38CF-4150-8264-EB22E579237D}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Hangfire.Topshelf", "Hangfire.Topshelf\Hangfire.Topshelf.xproj", "{C705ADF6-A43A-4687-817C-3A2926AB6746}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "Hangfire.Framework", "Hangfire.Framework\Hangfire.Framework.xproj", "{14663383-706C-4042-A263-9F03C066A9BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hangfire.Topshelf.tests", "Hangfire.Topshelf.tests\Hangfire.Topshelf.tests.csproj", "{7E727B81-4C33-40DF-AC2A-366E4218EFDA}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E187DFD9-90BC-4753-93BE-C1B018E06B67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E187DFD9-90BC-4753-93BE-C1B018E06B67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E187DFD9-90BC-4753-93BE-C1B018E06B67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E187DFD9-90BC-4753-93BE-C1B018E06B67}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D75DFE5D-38CF-4150-8264-EB22E579237D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D75DFE5D-38CF-4150-8264-EB22E579237D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D75DFE5D-38CF-4150-8264-EB22E579237D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D75DFE5D-38CF-4150-8264-EB22E579237D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C705ADF6-A43A-4687-817C-3A2926AB6746}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C705ADF6-A43A-4687-817C-3A2926AB6746}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C705ADF6-A43A-4687-817C-3A2926AB6746}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C705ADF6-A43A-4687-817C-3A2926AB6746}.Release|Any CPU.Build.0 = Release|Any CPU
+		{14663383-706C-4042-A263-9F03C066A9BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{14663383-706C-4042-A263-9F03C066A9BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{14663383-706C-4042-A263-9F03C066A9BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{14663383-706C-4042-A263-9F03C066A9BB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E727B81-4C33-40DF-AC2A-366E4218EFDA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E727B81-4C33-40DF-AC2A-366E4218EFDA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E727B81-4C33-40DF-AC2A-366E4218EFDA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E727B81-4C33-40DF-AC2A-366E4218EFDA}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{E187DFD9-90BC-4753-93BE-C1B018E06B67} = {173B08DF-358C-4F4C-B259-A8A875C106AE}
+		{D75DFE5D-38CF-4150-8264-EB22E579237D} = {173B08DF-358C-4F4C-B259-A8A875C106AE}
+		{C705ADF6-A43A-4687-817C-3A2926AB6746} = {2936A1CD-5F9A-4963-814A-9470C3DF0335}
+		{14663383-706C-4042-A263-9F03C066A9BB} = {173B08DF-358C-4F4C-B259-A8A875C106AE}
+		{7E727B81-4C33-40DF-AC2A-366E4218EFDA} = {2936A1CD-5F9A-4963-814A-9470C3DF0335}
+	EndGlobalSection
+EndGlobal

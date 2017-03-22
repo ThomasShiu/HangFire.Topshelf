@@ -1,0 +1,24 @@
+﻿[
+  {
+    "job-name": "計算目錄大小",
+    "job-type": "Hangfire.Topshelf.Jobs.CalcSpaceJob, Hangfire.Topshelf.Win",
+    "cron-expression": "*/1 * * * *",
+    // "cron-expression": "0 0 5 1/1 * ", 每日5點執行
+    "queue": "jobs",
+    "job-data": {
+      "Type": "1",
+      "Path": "D:\\30_Code\\Project_Case\\CCM.Hangfire.Topshelf\\Hangfire.Topshelf.tests\\obj",
+      "FileName": "",
+      "Drive": "C",
+      "searchPattern": "*.*"
+    }
+  },
+  {
+    "job-name": "My Job1",
+    "job-type": "Hangfire.Topshelf.Jobs.MyJob1, Hangfire.Topshelf",
+    "cron-expression": "*/1 * * * *",
+    "timezone": "China Standard Time",
+    "queue": "jobs"
+  }
+
+]

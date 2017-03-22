@@ -1,3 +1,0 @@
-{
-  "projects": [ "Hangfire.Autofac", ".", "Hangfire.RecurringJobExtensions/src", "cluster" ]
-}

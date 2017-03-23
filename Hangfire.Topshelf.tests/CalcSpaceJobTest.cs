@@ -1,10 +1,7 @@
 ﻿using System;
 using System.IO;
-using Hangfire.Server;
 using Hangfire.Topshelf.Jobs;
-using Hangfire.RecurringJobExtensions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using NSubstitute;
 
 namespace Hangfire.Topshelf.tests
 {
@@ -32,11 +29,9 @@ namespace Hangfire.Topshelf.tests
             //var job = new CalcSpaceJob();
             //// Act
 
-            //dir.Delete(true); 
+            //dir.Delete(true);
             //// Assert
-
         }
-
 
         [TestMethod]
         [TestCategory("計算目錄")]
@@ -55,7 +50,7 @@ namespace Hangfire.Topshelf.tests
             var sfs = new CaleFolderSpace();
             // Act
             var dirSize = sfs.Calculate(dir.FullName, "*.*");
-           
+
             dir.Delete(true);
             // Assert
             Assert.AreEqual<long>(dirSize, prcSize * iCount);

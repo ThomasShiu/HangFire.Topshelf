@@ -232,14 +232,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Apis\RPCController.cs" />
-    <Compile Include="AppServices\IInventoryService.cs" />
-    <Compile Include="AppServices\Impl\InventoryService.cs" />
-    <Compile Include="AppServices\Impl\OrderService.cs" />
-    <Compile Include="AppServices\Impl\ProductService.cs" />
-    <Compile Include="AppServices\Impl\SampleService.cs" />
-    <Compile Include="AppServices\IOrderService.cs" />
-    <Compile Include="AppServices\IProductService.cs" />
-    <Compile Include="AppServices\ISampleService.cs" />
     <Compile Include="Core\Bootstrap.cs" />
     <Compile Include="Core\HangfireExtensions.cs" />
     <Compile Include="Core\HangfireModule.cs" />
@@ -251,10 +243,6 @@
     <Compile Include="Jobs\CaleFileSpace.cs" />
     <Compile Include="Jobs\CaleFolderSpace.cs" />
     <Compile Include="Jobs\ICalcSpace.cs" />
-    <Compile Include="Jobs\LongRunningJob.cs" />
-    <Compile Include="Jobs\MyJob1.cs" />
-    <Compile Include="Jobs\MyJob2.cs" />
-    <Compile Include="Jobs\RecurringJobService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

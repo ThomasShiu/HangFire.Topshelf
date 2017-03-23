@@ -35,14 +35,17 @@ namespace Hangfire.Topshelf
         /// Windows 服務名稱
         /// </summary>
         public string ServiceName => Configuration["hangfire.server.serviceName"];
+
         /// <summary>
         /// Windows 服務顯示名稱
         /// </summary>
         public string ServiceDisplayName => Configuration["hangfire.server.serviceDisplayName"];
+
         /// <summary>
         /// Windows 服務描述
         /// </summary>
         public string ServiceDescription => Configuration["hangfire.server.serviceDescription"];
+
         /// <summary>
         /// Windows 服務位址
         /// </summary>
@@ -65,17 +68,17 @@ namespace Hangfire.Topshelf
 
         /// <summary>
         /// 記錄檔路徑位置
-        /// </summary>        
+        /// </summary>
         public string LogFilePath => Configuration["hangfire.logfile.path"];
 
         /// <summary>
         /// MSSQL連接字串
         /// </summary>
         public string HangfireSqlserverConnectionString => Configuration.GetConnectionString("hangfire.sqlserver");
-       
+
         /// <summary>
         ///  MSMQ 序列服務器連接字串
-        /// </summary>       
+        /// </summary>
         public string HangfireMSMQConnectionString => Configuration["hangfire.MSMQ"];
 
         /// <summary>
@@ -83,5 +86,6 @@ namespace Hangfire.Topshelf
         /// </summary>
         public string HangfireRedisConnectionString => Configuration.GetConnectionString("hangfire.redis");
     }
-    // TODO levi 170318 可以加入使用SQLite , 記憶體方式來作為Storage 
+
+    // TODO levi 170318 可以加入使用SQLite , 記憶體方式來作為Storage
 }

@@ -1,6 +1,6 @@
 ﻿using System;
-using Hangfire.Topshelf.Core;
 using System.Threading;
+using Hangfire.Topshelf.Core;
 using Serilog;
 using Topshelf;
 
@@ -16,7 +16,7 @@ namespace Hangfire.Topshelf.Win
             {
                 System.Console.Write("Cant boot another Hangfire.TopShelf for running state");
                 Thread.Sleep(5000);
-                return -1 ;
+                return -1;
             }
 #endif
 
@@ -26,7 +26,7 @@ namespace Hangfire.Topshelf.Win
                 .WriteTo.LiterateConsole()
                 .WriteTo.RollingFile(HangfireSettings.Instance.LogFilePath)
                 .CreateLogger();
-            // 起動Service 
+            // 起動Service
             return (int)HostFactory.Run(x =>
             {
                 x.UseSerilog(Log.Logger); // 將Topshelf log 傳給Serilog
@@ -48,7 +48,8 @@ namespace Hangfire.Topshelf.Win
         }
     }
 }
+
 /* 增加項目清單
  * 1. 程式參數的應用
- * 2. 
+ * 2.
  */

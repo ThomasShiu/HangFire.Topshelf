@@ -6,17 +6,17 @@ using System.Reflection;
 using System.Text.RegularExpressions;
 using Autofac;
 using Autofac.Core;
-using Hangfire.Topshelf.Jobs;
 using Hangfire.Samples.Framework;
 using Hangfire.Samples.Framework.Logging;
+using Hangfire.Topshelf.Jobs;
 
 namespace Hangfire.Topshelf.Core
 {
-	/// <summary>
-	/// Hangfire Autofac Module
-	/// </summary>
-	public class HangfireModule : Autofac.Module
-	{
+    /// <summary>
+    /// Hangfire Autofac Module
+    /// </summary>
+    public class HangfireModule : Autofac.Module
+    {
         /// <summary>
         /// Override to attach module-specific functionality to a
         /// component registration.
@@ -26,79 +26,78 @@ namespace Hangfire.Topshelf.Core
         /// <param name="registration">The registration to attach functionality to.</param>
         /// <remarks>This method will be called for all existing <i>and future</i> component
         /// registrations - ordering is not important.</remarks>
-        protected override void AttachToComponentRegistration(IComponentRegistry componentRegistry, 
+        protected override void AttachToComponentRegistration(IComponentRegistry componentRegistry,
                                                               IComponentRegistration registration)
-		{
-			base.AttachToComponentRegistration(componentRegistry, registration);
+        {
+            base.AttachToComponentRegistration(componentRegistry, registration);
 
-			// Handle constructor parameters.
-			registration.Preparing += OnComponentPreparing;
+            // Handle constructor parameters.
+            registration.Preparing += OnComponentPreparing;
 
-			// Handle properties.
-			registration.Activated += (sender, e) => InjectLoggerProperties(e.Instance);
-		}
+            // Handle properties.
+            registration.Activated += (sender, e) => InjectLoggerProperties(e.Instance);
+        }
 
-		private void InjectLoggerProperties(object instance)
-		{  // 注入記錄器屬性
-			var instanceType = instance.GetType();
+        private void InjectLoggerProperties(object instance)
+        {  // 注入記錄器屬性
+            var instanceType = instance.GetType();
 
-			// Get all the injectable properties to set.
-			// If you wanted to ensure the properties were only UNSET properties,
-			// here's where you'd do it.
-			var properties = instanceType
-			  .GetProperties(BindingFlags.Public | BindingFlags.Instance)
-			  .Where(p => p.PropertyType == typeof(ILog) && p.CanWrite && p.GetIndexParameters().Length == 0);
+            // Get all the injectable properties to set.
+            // If you wanted to ensure the properties were only UNSET properties,
+            // here's where you'd do it.
+            var properties = instanceType
+              .GetProperties(BindingFlags.Public | BindingFlags.Instance)
+              .Where(p => p.PropertyType == typeof(ILog) && p.CanWrite && p.GetIndexParameters().Length == 0);
 
-			// Set the properties located.
-			foreach (var propToSet in properties)
-			{
-				propToSet.SetValue(instance, LogProvider.GetLogger(instanceType), null);
-			}
-		}
+            // Set the properties located.
+            foreach (var propToSet in properties)
+            {
+                propToSet.SetValue(instance, LogProvider.GetLogger(instanceType), null);
+            }
+        }
 
         /// <summary>
-        /// 事件 在組件準備時  
+        /// 事件 在組件準備時
         /// </summary>
         /// <param name="sender">The sender.</param>
         /// <param name="e">The <see cref="PreparingEventArgs"/> instance containing the event data.</param>
         private void OnComponentPreparing(object sender, PreparingEventArgs e)
-		{
-			e.Parameters = e.Parameters.Union(new[]
-				 {
-					new ResolvedParameter(
-						(p, i) => p.ParameterType == typeof(ILog),
-						(p, i) => LogProvider.GetLogger(p.Member.DeclaringType)
-					),
-				 });
-		}
+        {
+            e.Parameters = e.Parameters.Union(new[]
+                 {
+                    new ResolvedParameter(
+                        (p, i) => p.ParameterType == typeof(ILog),
+                        (p, i) => LogProvider.GetLogger(p.Member.DeclaringType)
+                    ),
+                 });
+        }
 
-		/// <summary>
-		/// Auto register
-		/// </summary>
-		/// <param name="builder"></param>
-		/// <remarks>主要處理註冊所有的類別</remarks>
-		protected override void Load(ContainerBuilder builder)
-		{
-		    LoadPlugIn(builder);
+        /// <summary>
+        /// Auto register
+        /// </summary>
+        /// <param name="builder"></param>
+        /// <remarks>主要處理註冊所有的類別</remarks>
+        protected override void Load(ContainerBuilder builder)
+        {
+            LoadPlugIn(builder);
 
-            //register 註冊所實作的介面 
+            //register 註冊所實作的介面
             builder.RegisterAssemblyTypes(ThisAssembly)
-				.Where(t => typeof(IDependency).IsAssignableFrom(t) 
+                .Where(t => typeof(IDependency).IsAssignableFrom(t)
                        && t != typeof(IDependency) && !t.IsInterface)
-				.AsImplementedInterfaces();
-          
-            //register 註冊指定的類別  
-            RegisterspecifiedType(builder);
-            
-		}
+                .AsImplementedInterfaces();
 
-	    private void RegisterspecifiedType(ContainerBuilder builder)
-	    {
+            //register 註冊指定的類別
+            RegisterspecifiedType(builder);
+        }
+
+        private void RegisterspecifiedType(ContainerBuilder builder)
+        {
             // 註冊 Service類
-            builder.Register(x => new RecurringJobService() { });
+            // builder.Register(x => new RecurringJobService() { });
             // 註冊 特定類別
-            builder.Register(x => new MyJob1());
-            builder.Register(x => new MyJob2());
+            // builder.Register(x => new MyJob1());
+            // builder.Register(x => new MyJob2());
             // builder.Register(x => new LongRunningJob());
             builder.Register(x => new CalcSpaceJob());
         }
@@ -108,13 +107,11 @@ namespace Hangfire.Topshelf.Core
         /// </summary>
         /// <param name="builder">The builder.</param>
         private void LoadPlugIn(ContainerBuilder builder)
-	    {
-             string[] assemblyScanerPattern = new[] { @"CCM.Hangfire.Jobs.*.dll" };
-             //string[] assemblyScanerPattern = new[] { @"SampleJobA.dll" };
-            
+        {
+            string[] assemblyScanerPattern = new[] { @"CCM.Hangfire.Jobs.*.dll" };
 
             // Make sure process paths are sane...
-	        var plugInFolder = AppDomain.CurrentDomain.BaseDirectory;
+            var plugInFolder = AppDomain.CurrentDomain.BaseDirectory;
             // Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Jobs");
             Directory.SetCurrentDirectory(plugInFolder);
 
@@ -130,8 +127,7 @@ namespace Hangfire.Topshelf.Core
             {
                 builder.RegisterAssemblyTypes(assembly)
                     .AsSelf();
-                //.AsImplementedInterfaces(;
             }
         }
-	}
+    }
 }

@@ -20,6 +20,7 @@ namespace Hangfire.Topshelf.Jobs
             context.WriteLine("完成");
         }
     }
+
     internal class PamanObject
     {
         public string Name { get; set; }

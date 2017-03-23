@@ -28,6 +28,6 @@ namespace Hangfire.Topshelf.Jobs
                             BL_DT = p.eventDate,
                         });
             return ss.ToList();
-        } 
+        }
     }
 }

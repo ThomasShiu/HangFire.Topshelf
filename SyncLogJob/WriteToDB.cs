@@ -22,11 +22,11 @@ namespace Hangfire.Topshelf.Jobs
                         this.InsertTicketLog(conn, ss);
                     } else
                     {
-                      
                     }
                 }
             }
         }
+
         /// <summary>
         /// Opens the connection.
         /// </summary>
@@ -37,6 +37,7 @@ namespace Hangfire.Topshelf.Jobs
             connection.Open();
             return connection;
         }
+
         /// <summary>
         /// Inserts the ticket log.
         /// </summary>
@@ -80,7 +81,7 @@ namespace Hangfire.Topshelf.Jobs
                              EMPLYID = logdata.EMPLYID,
                              TKT_HH = logdata.TKT_HH,
                              TKT_NN = logdata.TKT_NN,
-                             TKT_SS = logdata.TKT_SS                             
+                             TKT_SS = logdata.TKT_SS
                          });
         }
     }

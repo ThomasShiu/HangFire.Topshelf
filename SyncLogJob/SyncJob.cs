@@ -1,8 +1,8 @@
 ﻿using System;
 using System.ComponentModel;
+using Hangfire.Console;
 using Hangfire.RecurringJobExtensions;
 using Hangfire.Server;
-using Hangfire.Console;
 
 namespace Hangfire.Topshelf.Jobs
 {

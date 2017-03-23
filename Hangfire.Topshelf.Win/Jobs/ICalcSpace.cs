@@ -13,6 +13,7 @@ namespace Hangfire.Topshelf.Jobs
         /// <param name="context">傳入參數內容</param>
         /// <returns>目標路徑</returns>
         string GetTarget(PerformContext context);
+
         /// <summary>
         /// 判斷目標是否存在
         /// </summary>
@@ -28,6 +29,6 @@ namespace Hangfire.Topshelf.Jobs
         /// <returns>目標大小位元組</returns>
         long Calculate(string target, string searchPattern);
 
-        // void SendTo(string info); 
+        // void SendTo(string info);
     }
 }

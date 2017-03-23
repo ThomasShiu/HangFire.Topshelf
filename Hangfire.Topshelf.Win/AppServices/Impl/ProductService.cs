@@ -1,12 +1,12 @@
-﻿using Hangfire.Samples.Framework; 
+﻿using Hangfire.Samples.Framework;
 
 namespace Hangfire.Topshelf.AppServices.Impl
 {
-	public class ProductService : BaseAppService, IProductService
-	{
-		public bool Exists(int productId)
-		{
-			return true;
-		}
-	}
+    public class ProductService : BaseAppService, IProductService
+    {
+        public bool Exists(int productId)
+        {
+            return true;
+        }
+    }
 }

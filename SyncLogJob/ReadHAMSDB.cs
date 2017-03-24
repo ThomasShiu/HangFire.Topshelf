@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using Hangfire.Server;
 using Hangfire.Topshelf.Jobs.DataModels;
 
 namespace Hangfire.Topshelf.Jobs
@@ -10,6 +11,12 @@ namespace Hangfire.Topshelf.Jobs
     /// </summary>
     internal class ReadHAMSDB
     {
+        private readonly PerformContext _context;
+
+        public ReadHAMSDB(PerformContext context)
+        {
+            _context = context;
+        }
         public IEnumerable<Ticker> Reading(DateTime eventDate)
         {
             HAMSDB baseDb = new HAMSDB("HAMSBase");

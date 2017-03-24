@@ -14,11 +14,13 @@
     }
   },
   {
-    "job-name": "My Job1",
-    "job-type": "Hangfire.Topshelf.Jobs.MyJob1, Hangfire.Topshelf",
-    "cron-expression": "*/1 * * * *",
-    "timezone": "China Standard Time",
-    "queue": "jobs"
-  }
-
+          "job-name": "同步刷卡資料",
+          "job-type": "Hangfire.Topshelf.Jobs.SyncLogSettings, CCM.Hangfire.Jobs.SyncLogJob",
+          "cron-expression": "*/1 * * * *",
+          // "cron-expression": "0 0 5 1/1 * ", 每日5點執行
+          "queue": "jobs",
+    "job-data": {
+      "Drive": "C"
+    }
+    }
 ]

@@ -1,12 +1,13 @@
 ﻿using System;
 using Microsoft.Extensions.Configuration;
 
+
 namespace Hangfire.Topshelf
 {
     /// <summary>
     /// 全域參數DTO
     /// </summary>
-    public class HangfireSettings
+    public class HangfireSettings 
     {
         private static readonly Lazy<HangfireSettings> _instance = new Lazy<HangfireSettings>(() => new HangfireSettings());
 

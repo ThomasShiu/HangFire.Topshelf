@@ -105,8 +105,8 @@ namespace Hangfire.Topshelf.Core
             // app.UseRecurringJob(typeof(RecurringJobService));
 
             app.UseRecurringJob(container);
-
-            app.UseRecurringJob("recurringjob.json");
+            
+            app.UseRecurringJob(HangfireSettings.Instance.RecurringJobFile);
 
             #endregion 註冊Job資料
         }

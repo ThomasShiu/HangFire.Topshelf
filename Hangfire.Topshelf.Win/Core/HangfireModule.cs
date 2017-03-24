@@ -39,7 +39,8 @@ namespace Hangfire.Topshelf.Core
         }
 
         private void InjectLoggerProperties(object instance)
-        {  // 注入記錄器屬性
+        { 
+            // 注入記錄器屬性
             var instanceType = instance.GetType();
 
             // Get all the injectable properties to set.

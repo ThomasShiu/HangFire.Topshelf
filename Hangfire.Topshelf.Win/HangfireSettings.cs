@@ -73,6 +73,11 @@ namespace Hangfire.Topshelf
         public string LogFilePath => Configuration["hangfire.logfile.path"];
 
         /// <summary>
+        /// 週期性任務設定檔位置
+        /// </summary>
+        public string RecurringJobFile => Configuration["hangfire.RecurringJobFile"];
+
+        /// <summary>
         /// MSSQL連接字串
         /// </summary>
         public string HangfireSqlserverConnectionString => Configuration.GetConnectionString("hangfire.sqlserver");

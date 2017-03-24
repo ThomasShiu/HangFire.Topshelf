@@ -41,7 +41,7 @@ namespace Hangfire.Topshelf.Apis
 		/// Echo 回應
 		/// </summary>
 		/// <returns>傳入什麼回傳什麼</returns>
-		[Route("api/echo/{0}")]
+		[Route("api/echo/{message}")]
         [HttpGet]
         public HttpResponseMessage Echo(string message)
         {
@@ -62,6 +62,18 @@ namespace Hangfire.Topshelf.Apis
 
             //BackgroundJob.Enqueue<IOrderService>(x => x.CreateOrder(productId));
 
+            return Request.CreateResponse(HttpStatusCode.OK, "Order Creating...");
+        }
+
+
+
+        /// <summary>
+        ///  取得週期任務的設定檔
+        /// </summary>
+        /// <param name="filename">The filename.</param>
+        /// <returns>HttpResponseMessage.</returns>
+        public HttpResponseMessage GetRecurringJobFile(string filename)
+        {
             return Request.CreateResponse(HttpStatusCode.OK, "Order Creating...");
         }
     }

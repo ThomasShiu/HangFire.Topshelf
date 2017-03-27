@@ -4,6 +4,7 @@ using Hangfire.Console;
 using Hangfire.Dashboard;
 using Owin;
 using Swashbuckle.Application;
+#pragma warning disable 618
 
 namespace Hangfire.Topshelf.Core
 {
@@ -76,6 +77,7 @@ namespace Hangfire.Topshelf.Core
             var options = new DashboardOptions
             {
                 AppPath = HangfireSettings.Instance.AppWebSite,
+                #region 權限設定
                 AuthorizationFilters = new[]
                 {
                     new BasicAuthAuthorizationFilter ( new BasicAuthAuthorizationFilterOptions
@@ -94,6 +96,7 @@ namespace Hangfire.Topshelf.Core
                         }
                     } )
                 }
+                #endregion
             };
             app.UseHangfireDashboard("", options);
             app.UseDashboardMetric();

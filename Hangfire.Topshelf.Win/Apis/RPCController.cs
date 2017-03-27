@@ -13,18 +13,7 @@ namespace Hangfire.Topshelf.Apis
     public class RPCController : ApiController
     {
         private static ILog _logger = LogProvider.GetLogger(typeof(RPCController));
-
-      //  public IProductService ProductService { get; private set; }
-
-        /// <summary>
-        /// Initializes a new instance of the <see cref="RPCController"/> class.
-        /// </summary>
-        /// <param name="productService">The product service.</param>
-      //  public RPCController(IProductService productService)
-      //  {
-       //     ProductService = productService;
-      //  }
-
+        
         /// <summary>
         /// Test apis
         /// </summary>

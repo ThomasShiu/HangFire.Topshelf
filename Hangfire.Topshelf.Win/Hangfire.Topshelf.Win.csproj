@@ -244,6 +244,7 @@
     <Compile Include="Jobs\CaleFileSpace.cs" />
     <Compile Include="Jobs\CaleFolderSpace.cs" />
     <Compile Include="Jobs\ICalcSpace.cs" />
+    <Compile Include="Jobs\MyJob2.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

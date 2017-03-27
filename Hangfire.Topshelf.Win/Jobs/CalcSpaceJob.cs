@@ -68,7 +68,7 @@ namespace Hangfire.Topshelf.Jobs
             context.WriteLine($"搜尋模式字串：{searchPattern}");
             var result = _calc.Calculate(target, searchPattern);
             context.WriteLine("目標大小為：{0}", result);
-            WriteTo("41DCF8A5ACB74AA38DD3DB8CB1EE5462", DateTime.Now, result);
+          //  WriteTo("41DCF8A5ACB74AA38DD3DB8CB1EE5462", DateTime.Now, result);
         }
 
         private async Task<bool> WriteTo(string serial, DateTime occurrence, long targetSize)

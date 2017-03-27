@@ -14,13 +14,47 @@
     }
   },
   {
-          "job-name": "同步刷卡資料",
-          "job-type": "Hangfire.Topshelf.Jobs.SyncLogSettings, CCM.Hangfire.Jobs.SyncLogJob",
-          "cron-expression": "*/1 * * * *",
-          // "cron-expression": "0 0 5 1/1 * ", 每日5點執行
-          "queue": "jobs",
+    "job-name": "同步刷卡資料",
+    "job-type": "Hangfire.Topshelf.Jobs.SyncLogSettings, CCM.Hangfire.Jobs.SyncLogJob",
+    "cron-expression": "*/1 * * * *",
+    // "cron-expression": "0 0 5 1/1 * ", 每日5點執行
+    "queue": "jobs",
     "job-data": {
       "Drive": "C"
     }
+  },
+  {
+    "job-name": "設定庫存出庫類異單據關帳日為前一天",
+    "job-type": "Hangfire.Topshelf.Jobs.SetVCHCFGJob, CCM.Hangfire.Jobs.SetVCHCFGJob",
+    // 每日早上3點
+    "cron-expression": "0 3 * * *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "HRSDBR53",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "ITEM": [
+        {
+          "VCHTY": "F712",
+          "Field": "xxx",
+          "Value": "true"
+        },
+        {
+          "VCHTY": "F712",
+          "Field": "xxx",
+          "Value": "true"
+        },
+        {
+          "VCHTY": "F712",
+          "Field": "xxx",
+          "Value": "true"
+        }
+      ]
     }
+  }
 ]

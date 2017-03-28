@@ -12,6 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "90_Solution Items", "90_Sol
 		Docs\best-practice-zh-cn.md = Docs\best-practice-zh-cn.md
 		Docs\InstallAndDevelopment.md = Docs\InstallAndDevelopment.md
 		Docs\README.md = Docs\README.md
+		Docs\SQLMemo.md = Docs\SQLMemo.md
 	EndProjectSection
 	ProjectSection(FolderGlobals) = preProject
 		__JSONSchema = 
@@ -34,6 +35,10 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hangfire.Topshelf.Win", "Hangfire.Topshelf.Win\Hangfire.Topshelf.Win.csproj", "{D9A685EA-5407-4390-9B9A-15DD944FC453}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "30_測試區", "30_測試區", "{686B88F6-C6F6-49D9-BBFF-0F5164A4BAAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SetVCHCFGJob", "SetVCHCFGJob\SetVCHCFGJob.csproj", "{2E956E54-0F1C-477F-B570-669390BD1216}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SetVCHCFGJob.Tests", "SetVCHCFGJob.Tests\SetVCHCFGJob.Tests.csproj", "{FF5AE316-7B3C-41A1-8B96-59569F271DB2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -65,6 +70,14 @@ Global
 		{D9A685EA-5407-4390-9B9A-15DD944FC453}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D9A685EA-5407-4390-9B9A-15DD944FC453}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D9A685EA-5407-4390-9B9A-15DD944FC453}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E956E54-0F1C-477F-B570-669390BD1216}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E956E54-0F1C-477F-B570-669390BD1216}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E956E54-0F1C-477F-B570-669390BD1216}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E956E54-0F1C-477F-B570-669390BD1216}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF5AE316-7B3C-41A1-8B96-59569F271DB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF5AE316-7B3C-41A1-8B96-59569F271DB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF5AE316-7B3C-41A1-8B96-59569F271DB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF5AE316-7B3C-41A1-8B96-59569F271DB2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -76,5 +89,7 @@ Global
 		{4E30C3BD-A4F0-49F4-9FD2-0DDBF5C8BC05} = {1EDCD82A-CE19-4846-AE5C-DA71FE2583F4}
 		{015B2504-7BF4-414D-881A-E56675FA88A6} = {686B88F6-C6F6-49D9-BBFF-0F5164A4BAAB}
 		{D9A685EA-5407-4390-9B9A-15DD944FC453} = {2936A1CD-5F9A-4963-814A-9470C3DF0335}
+		{2E956E54-0F1C-477F-B570-669390BD1216} = {1EDCD82A-CE19-4846-AE5C-DA71FE2583F4}
+		{FF5AE316-7B3C-41A1-8B96-59569F271DB2} = {686B88F6-C6F6-49D9-BBFF-0F5164A4BAAB}
 	EndGlobalSection
 EndGlobal

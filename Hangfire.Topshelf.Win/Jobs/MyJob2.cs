@@ -7,14 +7,15 @@ using Hangfire.Server;
 
 namespace Hangfire.Topshelf.Jobs
 {
+    /// <summary>
+    /// Class MyJob2.
+    /// </summary>
     public class MyJob2 : IRecurringJob
     {
-        private class SimpleObject
-        {
-            public string Name { get; set; }
-            public int Age { get; set; }
-        }
-
+        /// <summary>
+        /// Executes the specified context.
+        /// </summary>
+        /// <param name="context">The context.</param>
         [DisplayName("MyJob2 Test")]
         public void Execute(PerformContext context)
         {
@@ -26,9 +27,10 @@ namespace Hangfire.Topshelf.Jobs
 
             var booleanVal = context.GetJobData<bool>("BooleanVal");
 
-            var simpleObject = context.GetJobData<SimpleObject>("SimpleObject");
+            //var simpleObject = context.GetJobData<SimpleObject>("SimpleObject");
 
-            context.WriteLine($"IntVal:{intVal},StringVal:{stringVal},BooleanVal:{booleanVal},simpleObject:{JobHelper.ToJson(simpleObject)}");
+            // context.WriteLine($"IntVal:{intVal},StringVal:{stringVal},BooleanVal:{booleanVal},simpleObject:{JobHelper.ToJson(simpleObject)}");
+            context.WriteLine($"IntVal:{intVal},StringVal:{stringVal},BooleanVal:{booleanVal}");
         }
     }
 }

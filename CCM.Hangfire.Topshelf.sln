@@ -12,6 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "90_Solution Items", "90_Sol
 		Docs\best-practice-zh-cn.md = Docs\best-practice-zh-cn.md
 		Docs\InstallAndDevelopment.md = Docs\InstallAndDevelopment.md
 		Docs\README.md = Docs\README.md
+		Docs\SQLMemo.md = Docs\SQLMemo.md
 	EndProjectSection
 	ProjectSection(FolderGlobals) = preProject
 		__JSONSchema = 

@@ -5,23 +5,24 @@ using Hangfire.Samples.Framework.Logging;
 
 namespace Hangfire.Topshelf.AppServices.Impl
 {
-	public class OrderService : BaseAppService, IOrderService
-	{
-		public IProductService ProductService { get; private set; }
+    public class OrderService : BaseAppService, IOrderService
+    {
+        public IProductService ProductService { get; private set; }
 
-		public OrderService(IProductService productService)
-		{
-			ProductService = productService;
-		}
-		public void CreateOrder(int productId)
-		{
-			Thread.Sleep(1000);
+        public OrderService(IProductService productService)
+        {
+            ProductService = productService;
+        }
 
-			int orderId = new Random().Next();
+        public void CreateOrder(int productId)
+        {
+            Thread.Sleep(1000);
 
-			Logger.Info("create order successfully.");
+            int orderId = new Random().Next();
 
-			BackgroundJob.Enqueue<IInventoryService>(x => x.Reduce(orderId));
-		}
-	}
+            Logger.Info("create order successfully.");
+
+            BackgroundJob.Enqueue<IInventoryService>(x => x.Reduce(orderId));
+        }
+    }
 }

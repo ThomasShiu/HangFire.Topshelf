@@ -32,7 +32,7 @@
 // this can have unintended consequences of consumers of your library using your library to resolve a logger. If the
 // reason is because you want to open this functionality to other projects within your solution,
 // consider [InternalsVisibleTo] instead.
-// 
+//
 // Define LIBLOG_PROVIDERS_ONLY if your library provides its own logging API and you just want to use the
 // LibLog providers internally to provide built in support for popular logging frameworks.
 
@@ -48,19 +48,27 @@ using System.Diagnostics.CodeAnalysis;
 #if LIBLOG_PROVIDERS_ONLY
 namespace Hangfire.Samples.Framework.LibLog
 #else
+
 namespace Hangfire.Samples.Framework.Logging
 #endif
 {
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
+
 #if LIBLOG_PROVIDERS_ONLY
     using Hangfire.Samples.Framework.LibLog.LogProviders;
 #else
+
     using Hangfire.Samples.Framework.Logging.LogProviders;
+
 #endif
+
     using System;
+
 #if !LIBLOG_PROVIDERS_ONLY
+
     using System.Diagnostics;
+
 #if !LIBLOG_PORTABLE
     using System.Runtime.CompilerServices;
 #endif
@@ -69,6 +77,7 @@ namespace Hangfire.Samples.Framework.Logging
 #if LIBLOG_PROVIDERS_ONLY
     internal
 #else
+
     public
 #endif
     delegate bool Logger(LogLevel logLevel, Func<string> messageFunc, Exception exception = null, params object[] formatParameters);
@@ -78,6 +87,7 @@ namespace Hangfire.Samples.Framework.Logging
     /// Simple interface that represent a logger.
     /// </summary>
 #if LIBLOG_PUBLIC
+
     public
 #else
     internal
@@ -95,11 +105,12 @@ namespace Hangfire.Samples.Framework.Logging
         /// <remarks>
         /// Note to implementers: the message func should not be called if the loglevel is not enabled
         /// so as not to incur performance penalties.
-        /// 
+        ///
         /// To check IsEnabled call Log with only LogLevel and check the return value, no event will be written.
         /// </remarks>
-        bool Log(LogLevel logLevel, Func<string> messageFunc, Exception exception = null, params object[] formatParameters );
+        bool Log(LogLevel logLevel, Func<string> messageFunc, Exception exception = null, params object[] formatParameters);
     }
+
 #endif
 
     /// <summary>
@@ -108,6 +119,7 @@ namespace Hangfire.Samples.Framework.Logging
 #if LIBLOG_PROVIDERS_ONLY
     internal
 #else
+
     public
 #endif
     enum LogLevel
@@ -125,6 +137,7 @@ namespace Hangfire.Samples.Framework.Logging
     [ExcludeFromCodeCoverage]
 #endif
 #if LIBLOG_PUBLIC
+
     public
 #else
     internal
@@ -379,6 +392,7 @@ namespace Hangfire.Samples.Framework.Logging
             return value;
         }
     }
+
 #endif
 
     /// <summary>
@@ -387,6 +401,7 @@ namespace Hangfire.Samples.Framework.Logging
 #if LIBLOG_PROVIDERS_ONLY
     internal
 #else
+
     public
 #endif
     interface ILogProvider
@@ -423,13 +438,16 @@ namespace Hangfire.Samples.Framework.Logging
 #if LIBLOG_PROVIDERS_ONLY
     internal
 #else
+
     public
 #endif
     static class LogProvider
     {
 #if !LIBLOG_PROVIDERS_ONLY
+
         private const string NullLogProvider = "Current Log Provider is not set. Call SetCurrentLogProvider " +
                                                "with a non-null value first.";
+
         private static dynamic s_currentLogProvider;
         private static Action<ILogProvider> s_onCurrentLogProviderSet;
 
@@ -459,10 +477,10 @@ namespace Hangfire.Samples.Framework.Logging
         public static bool IsDisabled { get; set; }
 
         /// <summary>
-        /// Sets an action that is invoked when a consumer of your library has called SetCurrentLogProvider. It is 
+        /// Sets an action that is invoked when a consumer of your library has called SetCurrentLogProvider. It is
         /// important that hook into this if you are using child libraries (especially ilmerged ones) that are using
         /// LibLog (or other logging abstraction) so you adapt and delegate to them.
-        /// <see cref="SetCurrentLogProvider"/> 
+        /// <see cref="SetCurrentLogProvider"/>
         /// </summary>
         internal static Action<ILogProvider> OnCurrentLogProviderSet
         {
@@ -487,6 +505,7 @@ namespace Hangfire.Samples.Framework.Logging
         /// <typeparam name="T">The type whose name will be used for the logger.</typeparam>
         /// <returns>An instance of <see cref="ILog"/></returns>
 #if LIBLOG_PUBLIC
+
         public
 #else
         internal
@@ -521,6 +540,7 @@ namespace Hangfire.Samples.Framework.Logging
         /// <param name="fallbackTypeName">If the type is null then this name will be used as the log name instead</param>
         /// <returns>An instance of <see cref="ILog"/></returns>
 #if LIBLOG_PUBLIC
+
         public
 #else
         internal
@@ -537,6 +557,7 @@ namespace Hangfire.Samples.Framework.Logging
         /// <param name="name">The name.</param>
         /// <returns>An instance of <see cref="ILog"/></returns>
 #if LIBLOG_PUBLIC
+
         public
 #else
         internal
@@ -589,38 +610,43 @@ namespace Hangfire.Samples.Framework.Logging
                 ? new DisposableAction(() => { })
                 : logProvider.OpenMappedContext(key, value);
         }
+
 #endif
 
 #if LIBLOG_PROVIDERS_ONLY
     private
 #else
-    internal
+
+        internal
 #endif
     delegate bool IsLoggerAvailable();
 
 #if LIBLOG_PROVIDERS_ONLY
     private
 #else
-    internal
+
+        internal
 #endif
     delegate ILogProvider CreateLogProvider();
 
 #if LIBLOG_PROVIDERS_ONLY
     private
 #else
-    internal
+
+        internal
 #endif
     static readonly List<Tuple<IsLoggerAvailable, CreateLogProvider>> LogProviderResolvers =
-            new List<Tuple<IsLoggerAvailable, CreateLogProvider>>
-        {
+                new List<Tuple<IsLoggerAvailable, CreateLogProvider>>
+            {
             new Tuple<IsLoggerAvailable, CreateLogProvider>(SerilogLogProvider.IsLoggerAvailable, () => new SerilogLogProvider()),
             new Tuple<IsLoggerAvailable, CreateLogProvider>(NLogLogProvider.IsLoggerAvailable, () => new NLogLogProvider()),
             new Tuple<IsLoggerAvailable, CreateLogProvider>(Log4NetLogProvider.IsLoggerAvailable, () => new Log4NetLogProvider()),
             new Tuple<IsLoggerAvailable, CreateLogProvider>(EntLibLogProvider.IsLoggerAvailable, () => new EntLibLogProvider()),
             new Tuple<IsLoggerAvailable, CreateLogProvider>(LoupeLogProvider.IsLoggerAvailable, () => new LoupeLogProvider()),
-        };
+            };
 
 #if !LIBLOG_PROVIDERS_ONLY
+
         private static void RaiseOnCurrentLogProviderSet()
         {
             if (s_onCurrentLogProviderSet != null)
@@ -628,6 +654,7 @@ namespace Hangfire.Samples.Framework.Logging
                 s_onCurrentLogProviderSet(s_currentLogProvider);
             }
         }
+
 #endif
 
         [SuppressMessage("Microsoft.Globalization", "CA1303:Do not pass literals as localized parameters", MessageId = "System.Console.WriteLine(System.String,System.Object,System.Object)")]
@@ -643,8 +670,7 @@ namespace Hangfire.Samples.Framework.Logging
                         return providerResolver.Item2();
                     }
                 }
-            }
-            catch (Exception ex)
+            } catch (Exception ex)
             {
 #if LIBLOG_PORTABLE
                 Debug.WriteLine(
@@ -662,6 +688,7 @@ namespace Hangfire.Samples.Framework.Logging
 #if !LIBLOG_PORTABLE
         [ExcludeFromCodeCoverage]
 #endif
+
         internal class NoOpLogger : ILog
         {
             internal static readonly NoOpLogger Instance = new NoOpLogger();
@@ -671,6 +698,7 @@ namespace Hangfire.Samples.Framework.Logging
                 return false;
             }
         }
+
 #endif
     }
 
@@ -678,6 +706,7 @@ namespace Hangfire.Samples.Framework.Logging
 #if !LIBLOG_PORTABLE
     [ExcludeFromCodeCoverage]
 #endif
+
     internal class LoggerExecutionWrapper : ILog
     {
         private readonly Logger _logger;
@@ -712,8 +741,7 @@ namespace Hangfire.Samples.Framework.Logging
                 try
                 {
                     return messageFunc();
-                }
-                catch (Exception ex)
+                } catch (Exception ex)
                 {
                     Log(LogLevel.Error, () => FailedToGenerateLogMessage, ex);
                 }
@@ -722,36 +750,44 @@ namespace Hangfire.Samples.Framework.Logging
             return _logger(logLevel, wrappedMessageFunc, exception, formatParameters);
         }
     }
+
 #endif
 }
 
 #if LIBLOG_PROVIDERS_ONLY
 namespace Hangfire.Samples.Framework.LibLog.LogProviders
 #else
+
 namespace Hangfire.Samples.Framework.Logging.LogProviders
 #endif
 {
     using System;
     using System.Collections.Generic;
     using System.Diagnostics.CodeAnalysis;
+
 #if !LIBLOG_PORTABLE
     using System.Diagnostics;
 #endif
+
     using System.Globalization;
     using System.Linq;
     using System.Linq.Expressions;
     using System.Reflection;
+
 #if !LIBLOG_PORTABLE
     using System.Text;
 #endif
+
     using System.Text.RegularExpressions;
 
 #if !LIBLOG_PORTABLE
     [ExcludeFromCodeCoverage]
 #endif
+
     internal abstract class LogProviderBase : ILogProvider
     {
         protected delegate IDisposable OpenNdc(string message);
+
         protected delegate IDisposable OpenMdc(string key, string value);
 
         private readonly Lazy<OpenNdc> _lazyOpenNdcMethod;
@@ -792,6 +828,7 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
 #if !LIBLOG_PORTABLE
     [ExcludeFromCodeCoverage]
 #endif
+
     internal class NLogLogProvider : LogProviderBase
     {
         private readonly Func<string, object> _getLoggerByNameDelegate;
@@ -876,6 +913,7 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
 #if !LIBLOG_PORTABLE
         [ExcludeFromCodeCoverage]
 #endif
+
         internal class NLogLogger
         {
             private readonly dynamic _logger;
@@ -925,8 +963,7 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
                         Expression.Constant(null, typeof(IFormatProvider)), messageParam, Expression.Constant(null, typeof(object[])));
                     _logEventInfoFact = Expression.Lambda<Func<string, object, string, Exception, object>>(createLogEventInfoMethodCall,
                         loggerNameParam, levelParam, messageParam, exceptionParam).Compile();
-                }
-                catch { }
+                } catch { }
             }
 
             internal NLogLogger(dynamic logger)
@@ -980,7 +1017,7 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
                     return false;
                 }
 
-                if(exception != null)
+                if (exception != null)
                 {
                     return LogException(logLevel, messageFunc, exception);
                 }
@@ -993,6 +1030,7 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
                             return true;
                         }
                         break;
+
                     case LogLevel.Info:
                         if (_logger.IsInfoEnabled)
                         {
@@ -1000,6 +1038,7 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
                             return true;
                         }
                         break;
+
                     case LogLevel.Warn:
                         if (_logger.IsWarnEnabled)
                         {
@@ -1007,6 +1046,7 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
                             return true;
                         }
                         break;
+
                     case LogLevel.Error:
                         if (_logger.IsErrorEnabled)
                         {
@@ -1014,6 +1054,7 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
                             return true;
                         }
                         break;
+
                     case LogLevel.Fatal:
                         if (_logger.IsFatalEnabled)
                         {
@@ -1021,6 +1062,7 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
                             return true;
                         }
                         break;
+
                     default:
                         if (_logger.IsTraceEnabled)
                         {
@@ -1057,6 +1099,7 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
                             return true;
                         }
                         break;
+
                     case LogLevel.Info:
                         if (_logger.IsInfoEnabled)
                         {
@@ -1064,6 +1107,7 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
                             return true;
                         }
                         break;
+
                     case LogLevel.Warn:
                         if (_logger.IsWarnEnabled)
                         {
@@ -1071,6 +1115,7 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
                             return true;
                         }
                         break;
+
                     case LogLevel.Error:
                         if (_logger.IsErrorEnabled)
                         {
@@ -1078,6 +1123,7 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
                             return true;
                         }
                         break;
+
                     case LogLevel.Fatal:
                         if (_logger.IsFatalEnabled)
                         {
@@ -1085,6 +1131,7 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
                             return true;
                         }
                         break;
+
                     default:
                         if (_logger.IsTraceEnabled)
                         {
@@ -1102,14 +1149,19 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
                 {
                     case LogLevel.Debug:
                         return _logger.IsDebugEnabled;
+
                     case LogLevel.Info:
                         return _logger.IsInfoEnabled;
+
                     case LogLevel.Warn:
                         return _logger.IsWarnEnabled;
+
                     case LogLevel.Error:
                         return _logger.IsErrorEnabled;
+
                     case LogLevel.Fatal:
                         return _logger.IsFatalEnabled;
+
                     default:
                         return _logger.IsTraceEnabled;
                 }
@@ -1121,16 +1173,22 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
                 {
                     case LogLevel.Trace:
                         return _levelTrace;
+
                     case LogLevel.Debug:
                         return _levelDebug;
+
                     case LogLevel.Info:
                         return _levelInfo;
+
                     case LogLevel.Warn:
                         return _levelWarn;
+
                     case LogLevel.Error:
                         return _levelError;
+
                     case LogLevel.Fatal:
                         return _levelFatal;
+
                     default:
                         throw new ArgumentOutOfRangeException("logLevel", logLevel, null);
                 }
@@ -1141,6 +1199,7 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
 #if !LIBLOG_PORTABLE
     [ExcludeFromCodeCoverage]
 #endif
+
     internal class Log4NetLogProvider : LogProviderBase
     {
         private readonly Func<string, object> _getLoggerByNameDelegate;
@@ -1252,6 +1311,7 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
 #if !LIBLOG_PORTABLE
         [ExcludeFromCodeCoverage]
 #endif
+
         internal class Log4NetLogger
         {
             private readonly dynamic _logger;
@@ -1450,7 +1510,7 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
                             }
                         }
 #else
-                        s_callerStackBoundaryType = typeof (LoggerExecutionWrapper);
+                        s_callerStackBoundaryType = typeof(LoggerExecutionWrapper);
 #endif
                     }
                 }
@@ -1504,14 +1564,19 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
                     case LogLevel.Trace:
                     case LogLevel.Debug:
                         return _levelDebug;
+
                     case LogLevel.Info:
                         return _levelInfo;
+
                     case LogLevel.Warn:
                         return _levelWarn;
+
                     case LogLevel.Error:
                         return _levelError;
+
                     case LogLevel.Fatal:
                         return _levelFatal;
+
                     default:
                         throw new ArgumentOutOfRangeException("logLevel", logLevel, null);
                 }
@@ -1522,6 +1587,7 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
 #if !LIBLOG_PORTABLE
     [ExcludeFromCodeCoverage]
 #endif
+
     internal class EntLibLogProvider : LogProviderBase
     {
         private const string TypeTemplate = "Microsoft.Practices.EnterpriseLibrary.Logging.{0}, Microsoft.Practices.EnterpriseLibrary.Logging";
@@ -1628,12 +1694,12 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
                 Expression.Bind(entryType.GetPropertyPortable("Severity"), severityParameter),
                 Expression.Bind(
                     entryType.GetPropertyPortable("TimeStamp"),
-                    Expression.Property(null, typeof (DateTime).GetPropertyPortable("UtcNow"))),
+                    Expression.Property(null, typeof(DateTime).GetPropertyPortable("UtcNow"))),
                 Expression.Bind(
                     entryType.GetPropertyPortable("Categories"),
                     Expression.ListInit(
-                        Expression.New(typeof (List<string>)),
-                        typeof (List<string>).GetMethodPortable("Add", typeof (string)),
+                        Expression.New(typeof(List<string>)),
+                        typeof(List<string>).GetMethodPortable("Add", typeof(string)),
                         logNameParameter)));
             return memberInit;
         }
@@ -1641,6 +1707,7 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
 #if !LIBLOG_PORTABLE
         [ExcludeFromCodeCoverage]
 #endif
+
         internal class EntLibLogger
         {
             private readonly string _loggerName;
@@ -1661,7 +1728,6 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
                 {
                     return _shouldLog(_loggerName, severity);
                 }
-
 
                 messageFunc = LogMessageFormatter.SimulateStructuredLogging(messageFunc, formatParameters);
                 if (exception != null)
@@ -1686,12 +1752,16 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
                 {
                     case LogLevel.Fatal:
                         return TraceEventTypeValues.Critical;
+
                     case LogLevel.Error:
                         return TraceEventTypeValues.Error;
+
                     case LogLevel.Warn:
                         return TraceEventTypeValues.Warning;
+
                     case LogLevel.Info:
                         return TraceEventTypeValues.Information;
+
                     default:
                         return TraceEventTypeValues.Verbose;
                 }
@@ -1702,6 +1772,7 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
 #if !LIBLOG_PORTABLE
     [ExcludeFromCodeCoverage]
 #endif
+
     internal class SerilogLogProvider : LogProviderBase
     {
         private readonly Func<string, object> _getLoggerByNameDelegate;
@@ -1745,11 +1816,11 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
 
         private static Func<string, string, IDisposable> GetPushProperty()
         {
-            Type ndcContextType = Type.GetType("Serilog.Context.LogContext, Serilog") ?? 
+            Type ndcContextType = Type.GetType("Serilog.Context.LogContext, Serilog") ??
                                   Type.GetType("Serilog.Context.LogContext, Serilog.FullNetFx");
 
             MethodInfo pushPropertyMethod = ndcContextType.GetMethodPortable(
-                "PushProperty", 
+                "PushProperty",
                 typeof(string),
                 typeof(object),
                 typeof(bool));
@@ -1766,7 +1837,7 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
                     valueParam,
                     destructureObjectParam)
                 .Compile();
-            
+
             return (key, value) => pushProperty(key, value, false);
         }
 
@@ -1784,7 +1855,7 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
             ParameterExpression destructureObjectsParam = Expression.Parameter(typeof(bool), "destructureObjects");
             MethodCallExpression methodCall = Expression.Call(null, method, new Expression[]
             {
-                propertyNameParam, 
+                propertyNameParam,
                 valueParam,
                 destructureObjectsParam
             });
@@ -1800,6 +1871,7 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
 #if !LIBLOG_PORTABLE
         [ExcludeFromCodeCoverage]
 #endif
+
         internal class SerilogLogger
         {
             private readonly object _logger;
@@ -1858,7 +1930,7 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
                     messageParam,
                     propertyValuesParam);
                 var expression = Expression.Lambda<Action<object, object, string, object[]>>(
-                    writeMethodExp, 
+                    writeMethodExp,
                     instanceParam,
                     levelParam,
                     messageParam,
@@ -1867,7 +1939,7 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
 
                 // Action<object, object, string, Exception> WriteException =
                 // (logger, level, exception, message) => { ((ILogger)logger).Write(level, exception, message, new object[]); }
-                MethodInfo writeExceptionMethodInfo = loggerType.GetMethodPortable("Write", 
+                MethodInfo writeExceptionMethodInfo = loggerType.GetMethodPortable("Write",
                     logEventLevelType,
                     typeof(Exception),
                     typeof(string),
@@ -1881,7 +1953,7 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
                     messageParam,
                     propertyValuesParam);
                 WriteException = Expression.Lambda<Action<object, object, Exception, string, object[]>>(
-                    writeMethodExp, 
+                    writeMethodExp,
                     instanceParam,
                     levelParam,
                     exceptionParam,
@@ -1910,8 +1982,7 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
                 if (exception != null)
                 {
                     LogException(translatedLevel, messageFunc, exception, formatParameters);
-                }
-                else
+                } else
                 {
                     LogMessage(translatedLevel, messageFunc, formatParameters);
                 }
@@ -1935,14 +2006,19 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
                 {
                     case LogLevel.Fatal:
                         return FatalLevel;
+
                     case LogLevel.Error:
                         return ErrorLevel;
+
                     case LogLevel.Warn:
                         return WarningLevel;
+
                     case LogLevel.Info:
                         return InformationLevel;
+
                     case LogLevel.Trace:
                         return VerboseLevel;
+
                     default:
                         return DebugLevel;
                 }
@@ -1953,6 +2029,7 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
 #if !LIBLOG_PORTABLE
     [ExcludeFromCodeCoverage]
 #endif
+
     internal class LoupeLogProvider : LogProviderBase
     {
         /// <summary>
@@ -2020,7 +2097,7 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
 
             MethodInfo method = logManagerType.GetMethodPortable(
                 "Write",
-                logMessageSeverityType, typeof(string), typeof(int), typeof(Exception), typeof(bool), 
+                logMessageSeverityType, typeof(string), typeof(int), typeof(Exception), typeof(bool),
                 logWriteModeType, typeof(string), typeof(string), typeof(string), typeof(string), typeof(object[]));
 
             var callDelegate = (WriteDelegate)method.CreateDelegate(typeof(WriteDelegate));
@@ -2030,6 +2107,7 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
 #if !LIBLOG_PORTABLE
         [ExcludeFromCodeCoverage]
 #endif
+
         internal class LoupeLogger
         {
             private const string LogSystem = "LibLog";
@@ -2071,16 +2149,22 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
                 {
                     case LogLevel.Trace:
                         return TraceEventTypeValues.Verbose;
+
                     case LogLevel.Debug:
                         return TraceEventTypeValues.Verbose;
+
                     case LogLevel.Info:
                         return TraceEventTypeValues.Information;
+
                     case LogLevel.Warn:
                         return TraceEventTypeValues.Warning;
+
                     case LogLevel.Error:
                         return TraceEventTypeValues.Error;
+
                     case LogLevel.Fatal:
                         return TraceEventTypeValues.Critical;
+
                     default:
                         throw new ArgumentOutOfRangeException("logLevel");
                 }
@@ -2091,6 +2175,7 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
 #if !LIBLOG_PORTABLE
     [ExcludeFromCodeCoverage]
 #endif
+
     internal static class TraceEventTypeValues
     {
         internal static readonly Type Type;
@@ -2121,6 +2206,7 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
 #if !LIBLOG_PORTABLE
     [ExcludeFromCodeCoverage]
 #endif
+
     internal static class LogMessageFormatter
     {
         //private static readonly Regex Pattern = new Regex(@"\{@?\w{1,}\}");
@@ -2132,9 +2218,9 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
 
         /// <summary>
         /// Some logging frameworks support structured logging, such as serilog. This will allow you to add names to structured data in a format string:
-        /// For example: Log("Log message to {user}", user). This only works with serilog, but as the user of LibLog, you don't know if serilog is actually 
-        /// used. So, this class simulates that. it will replace any text in {curly braces} with an index number. 
-        /// 
+        /// For example: Log("Log message to {user}", user). This only works with serilog, but as the user of LibLog, you don't know if serilog is actually
+        /// used. So, this class simulates that. it will replace any text in {curly braces} with an index number.
+        ///
         /// "Log {message} to {user}" would turn into => "Log {0} to {1}". Then the format parameters are handled using regular .net string.Format.
         /// </summary>
         /// <param name="messageBuilder">The message builder.</param>
@@ -2197,8 +2283,7 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
             try
             {
                 return string.Format(CultureInfo.InvariantCulture, targetMessage, formatParameters);
-            }
-            catch (FormatException ex)
+            } catch (FormatException ex)
             {
                 throw new FormatException("The input string '" + targetMessage + "' could not be formatted using string.Format", ex);
             }
@@ -2208,6 +2293,7 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
 #if !LIBLOG_PORTABLE
     [ExcludeFromCodeCoverage]
 #endif
+
     internal static class TypeExtensions
     {
         internal static ConstructorInfo GetConstructorPortable(this Type type, params Type[] types)
@@ -2269,6 +2355,7 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
         }
 
 #if LIBLOG_PORTABLE
+
         internal static MethodInfo GetGetMethod(this PropertyInfo propertyInfo)
         {
             return propertyInfo.GetMethod;
@@ -2278,6 +2365,7 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
         {
             return propertyInfo.SetMethod;
         }
+
 #endif
 
 #if !LIBLOG_PORTABLE
@@ -2300,6 +2388,7 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
 #if !LIBLOG_PORTABLE
     [ExcludeFromCodeCoverage]
 #endif
+
     internal class DisposableAction : IDisposable
     {
         private readonly Action _onDispose;
@@ -2311,7 +2400,7 @@ namespace Hangfire.Samples.Framework.Logging.LogProviders
 
         public void Dispose()
         {
-            if(_onDispose != null)
+            if (_onDispose != null)
             {
                 _onDispose();
             }

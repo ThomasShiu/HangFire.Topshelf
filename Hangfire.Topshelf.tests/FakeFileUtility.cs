@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 
 namespace Hangfire.Topshelf.tests
@@ -17,7 +13,7 @@ namespace Hangfire.Topshelf.tests
         /// </summary>
         /// <param name="fileName">檔案名稱</param>
         /// <param name="fileSize">檔案大小</param>
-        internal static void CreateFakeFile(string fileName , int fileSize)
+        internal static void CreateFakeFile(string fileName, int fileSize)
         {
             var fs = new FileStream(fileName, FileMode.Create, FileAccess.ReadWrite, FileShare.None, fileSize, true);
             byte[] dataArray = new byte[fileSize];

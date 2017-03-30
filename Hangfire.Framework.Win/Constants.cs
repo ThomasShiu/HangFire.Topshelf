@@ -1,8 +1,7 @@
-﻿
-namespace Hangfire.Samples.Framework
+﻿namespace Hangfire.Samples.Framework
 {
-	public class Constants
-	{
-		public static readonly string QuantityStringKey = "hf:samples:InventoryService:quantity"; 
-	}
+    public class Constants
+    {
+        public static readonly string QuantityStringKey = "hf:samples:InventoryService:quantity";
+    }
 }

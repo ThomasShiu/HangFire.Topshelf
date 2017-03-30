@@ -1,5 +1,4 @@
-﻿
-namespace Hangfire.Samples.Framework
+﻿namespace Hangfire.Samples.Framework
 {
     public interface IDependency
     {

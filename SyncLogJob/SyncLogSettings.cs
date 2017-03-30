@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 
 namespace Hangfire.Topshelf.Jobs
@@ -12,7 +8,6 @@ namespace Hangfire.Topshelf.Jobs
     /// </summary>
     public class SyncLogSettings
     {
-
         private static readonly Lazy<SyncLogSettings> _instance = new Lazy<SyncLogSettings>(() => new SyncLogSettings());
 
         /// <summary>
@@ -40,12 +35,13 @@ namespace Hangfire.Topshelf.Jobs
         /// MSSQL連接字串
         /// </summary>
         public string ConnectionString => Configuration.GetConnectionString("hangfire.sqlserver");
+
         /// <summary>
         /// 資料庫連接字串
         /// </summary>
-        /// <value>主要連接到資料庫所使用的字串</value>        
+        /// <value>主要連接到資料庫所使用的字串</value>
         public string DataBaseConnectString => Configuration.GetConnectionString("HRDBR");
-        
+
         /// <summary>
         /// HAMS 當年度出勤資料的資料庫
         /// </summary>
@@ -57,6 +53,5 @@ namespace Hangfire.Topshelf.Jobs
         /// </summary>
         /// <value>The hams base database.</value>
         public string HAMSBaseDB => Configuration.GetConnectionString("HAMS.DB");
-
     }
 }

@@ -239,12 +239,15 @@
     <Compile Include="Core\PerformContextToken.cs" />
     <Compile Include="Core\Startup.cs" />
     <Compile Include="HangfireSettings.cs" />
-    <Compile Include="Jobs\CalcSpaceJob.cs" />
-    <Compile Include="Jobs\CaleDriveSpace.cs" />
-    <Compile Include="Jobs\CaleFileSpace.cs" />
-    <Compile Include="Jobs\CaleFolderSpace.cs" />
-    <Compile Include="Jobs\ICalcSpace.cs" />
-    <Compile Include="Jobs\MyJob2.cs" />
+    <Compile Include="Jobs\CalcSpace\CalcSpaceJob.cs" />
+    <Compile Include="Jobs\CalcSpace\CaleDriveSpace.cs" />
+    <Compile Include="Jobs\CalcSpace\CaleFileSpace.cs" />
+    <Compile Include="Jobs\CalcSpace\CaleFolderSpace.cs" />
+    <Compile Include="Jobs\CalcSpace\ICalcSpace.cs" />
+    <Compile Include="Jobs\Sample\LongRunningJob.cs" />
+    <Compile Include="Jobs\Sample\MyJob1.cs" />
+    <Compile Include="Jobs\Sample\MyJob2.cs" />
+    <Compile Include="Jobs\Sample\RecurringJobService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

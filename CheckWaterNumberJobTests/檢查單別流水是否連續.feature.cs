@@ -17,37 +17,42 @@ namespace CheckWaterNumberJobTests
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("TechTalk.SpecFlow", "2.1.0.0")]
     [System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    [TechTalk.SpecRun.FeatureAttribute("檢查單別流水是否連續", Description="\tIn order to avoid silly mistakes\r\n\tAs a math idiot\r\n\tI want to be told the sum o" +
-        "f two numbers", SourceFile="檢查單別流水是否連續.feature", SourceLine=1)]
+    [Microsoft.VisualStudio.TestTools.UnitTesting.TestClassAttribute()]
     public partial class 檢查單別流水是否連續Feature
     {
         
-        private TechTalk.SpecFlow.ITestRunner testRunner;
+        private static TechTalk.SpecFlow.ITestRunner testRunner;
         
 #line 1 "檢查單別流水是否連續.feature"
 #line hidden
         
-        [TechTalk.SpecRun.FeatureInitialize()]
-        public virtual void FeatureSetup()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.ClassInitializeAttribute()]
+        public static void FeatureSetup(Microsoft.VisualStudio.TestTools.UnitTesting.TestContext testContext)
         {
-            testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner();
+            testRunner = TechTalk.SpecFlow.TestRunnerManager.GetTestRunner(null, 0);
             TechTalk.SpecFlow.FeatureInfo featureInfo = new TechTalk.SpecFlow.FeatureInfo(new System.Globalization.CultureInfo("zh-TW"), "檢查單別流水是否連續", "\tIn order to avoid silly mistakes\r\n\tAs a math idiot\r\n\tI want to be told the sum o" +
                     "f two numbers", ProgrammingLanguage.CSharp, ((string[])(null)));
             testRunner.OnFeatureStart(featureInfo);
         }
         
-        [TechTalk.SpecRun.FeatureCleanup()]
-        public virtual void FeatureTearDown()
+        [Microsoft.VisualStudio.TestTools.UnitTesting.ClassCleanupAttribute()]
+        public static void FeatureTearDown()
         {
             testRunner.OnFeatureEnd();
             testRunner = null;
         }
         
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestInitializeAttribute()]
         public virtual void TestInitialize()
         {
+            if (((testRunner.FeatureContext != null) 
+                        && (testRunner.FeatureContext.FeatureInfo.Title != "檢查單別流水是否連續")))
+            {
+                CheckWaterNumberJobTests.檢查單別流水是否連續Feature.FeatureSetup(null);
+            }
         }
         
-        [TechTalk.SpecRun.ScenarioCleanup()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCleanupAttribute()]
         public virtual void ScenarioTearDown()
         {
             testRunner.OnScenarioEnd();
@@ -63,8 +68,10 @@ namespace CheckWaterNumberJobTests
             testRunner.CollectScenarioErrors();
         }
         
-        [TechTalk.SpecRun.ScenarioAttribute("進行單別流水號檢查", new string[] {
-                "mytag"}, SourceLine=7)]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestMethodAttribute()]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.DescriptionAttribute("進行單別流水號檢查")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestPropertyAttribute("FeatureTitle", "檢查單別流水是否連續")]
+        [Microsoft.VisualStudio.TestTools.UnitTesting.TestCategoryAttribute("mytag")]
         public virtual void 進行單別流水號檢查()
         {
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("進行單別流水號檢查", new string[] {
@@ -86,10 +93,6 @@ this.ScenarioSetup(scenarioInfo);
                         "2017/1/4"});
             table1.AddRow(new string[] {
                         "F712",
-                        "170104003",
-                        "2017/1/4"});
-            table1.AddRow(new string[] {
-                        "F712",
                         "170104004",
                         "2017/1/4"});
             table1.AddRow(new string[] {
@@ -100,109 +103,9 @@ this.ScenarioSetup(scenarioInfo);
                         "F712",
                         "170104006",
                         "2017/1/4"});
-            table1.AddRow(new string[] {
-                        "F712",
-                        "170104007",
-                        "2017/1/4"});
-            table1.AddRow(new string[] {
-                        "F712",
-                        "170104008",
-                        "2017/1/4"});
-            table1.AddRow(new string[] {
-                        "F712",
-                        "170104009",
-                        "2017/1/4"});
-            table1.AddRow(new string[] {
-                        "F712",
-                        "170104010",
-                        "2017/1/4"});
-            table1.AddRow(new string[] {
-                        "F712",
-                        "170104011",
-                        "2017/1/4"});
-            table1.AddRow(new string[] {
-                        "F712",
-                        "170104012",
-                        "2017/1/4"});
-            table1.AddRow(new string[] {
-                        "F712",
-                        "170104013",
-                        "2017/1/4"});
-            table1.AddRow(new string[] {
-                        "F712",
-                        "170104014",
-                        "2017/1/4"});
-            table1.AddRow(new string[] {
-                        "F712",
-                        "170104015",
-                        "2017/1/4"});
-            table1.AddRow(new string[] {
-                        "F712",
-                        "170104016",
-                        "2017/1/4"});
-            table1.AddRow(new string[] {
-                        "F712",
-                        "170104017",
-                        "2017/1/4"});
-            table1.AddRow(new string[] {
-                        "F712",
-                        "170104018",
-                        "2017/1/4"});
-            table1.AddRow(new string[] {
-                        "F712",
-                        "170104019",
-                        "2017/1/4"});
-            table1.AddRow(new string[] {
-                        "F712",
-                        "170104020",
-                        "2017/1/4"});
-            table1.AddRow(new string[] {
-                        "F712",
-                        "170104021",
-                        "2017/1/4"});
-            table1.AddRow(new string[] {
-                        "F712",
-                        "170104022",
-                        "2017/1/4"});
-            table1.AddRow(new string[] {
-                        "F712",
-                        "170104023",
-                        "2017/1/4"});
-            table1.AddRow(new string[] {
-                        "F712",
-                        "170104024",
-                        "2017/1/4"});
-            table1.AddRow(new string[] {
-                        "F712",
-                        "170104025",
-                        "2017/1/4"});
-            table1.AddRow(new string[] {
-                        "F712",
-                        "170104026",
-                        "2017/1/4"});
-            table1.AddRow(new string[] {
-                        "F712",
-                        "170104027",
-                        "2017/1/4"});
-            table1.AddRow(new string[] {
-                        "F712",
-                        "170104028",
-                        "2017/1/4"});
-            table1.AddRow(new string[] {
-                        "F712",
-                        "170104029",
-                        "2017/1/4"});
-            table1.AddRow(new string[] {
-                        "F712",
-                        "170104030",
-                        "2017/1/4"});
-            table1.AddRow(new string[] {
-                        "F712",
-                        "170104031",
-                        "2017/1/4"});
 #line 9
  testRunner.Given("目前製令單中有單別資料如下", ((string)(null)), table1, "假設");
-#line 42
+#line 16
  testRunner.When("進行檢查時", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "當");
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
@@ -210,19 +113,13 @@ this.ScenarioSetup(scenarioInfo);
                         "VCH_NO",
                         "VCH_DT"});
             table2.AddRow(new string[] {
-                        "F711",
-                        "170101001",
-                        "2017/01/01"});
-#line 43
+                        "F712",
+                        "170101003",
+                        "2017/01/04"});
+#line 17
  testRunner.Then("會有以下資料的產生", ((string)(null)), table2, "那麼");
 #line hidden
             this.ScenarioCleanup();
-        }
-        
-        [TechTalk.SpecRun.TestRunCleanup()]
-        public virtual void TestRunCleanup()
-        {
-            TechTalk.SpecFlow.TestRunnerManager.GetTestRunner().OnTestRunEnd();
         }
     }
 }

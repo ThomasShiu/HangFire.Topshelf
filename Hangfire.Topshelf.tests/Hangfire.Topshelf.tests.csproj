@@ -83,19 +83,19 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="..\Hangfire.Topshelf.Win\Jobs\CalcSpaceJob.cs">
+    <Compile Include="..\Hangfire.Topshelf.Win\Jobs\CalcSpace\CalcSpaceJob.cs">
       <Link>CalcSpaceJob.cs</Link>
     </Compile>
-    <Compile Include="..\Hangfire.Topshelf.Win\Jobs\CaleDriveSpace.cs">
+    <Compile Include="..\Hangfire.Topshelf.Win\Jobs\CalcSpace\CaleDriveSpace.cs">
       <Link>CaleDriveSpace.cs</Link>
     </Compile>
-    <Compile Include="..\Hangfire.Topshelf.Win\Jobs\CaleFileSpace.cs">
+    <Compile Include="..\Hangfire.Topshelf.Win\Jobs\CalcSpace\CaleFileSpace.cs">
       <Link>CaleFileSpace.cs</Link>
     </Compile>
-    <Compile Include="..\Hangfire.Topshelf.Win\Jobs\CaleFolderSpace.cs">
+    <Compile Include="..\Hangfire.Topshelf.Win\Jobs\CalcSpace\CaleFolderSpace.cs">
       <Link>CaleFolderSpace.cs</Link>
     </Compile>
-    <Compile Include="..\Hangfire.Topshelf.Win\Jobs\ICalcSpace.cs">
+    <Compile Include="..\Hangfire.Topshelf.Win\Jobs\CalcSpace\ICalcSpace.cs">
       <Link>ICalcSpace.cs</Link>
     </Compile>
     <Compile Include="FakeFileUtility.cs" />

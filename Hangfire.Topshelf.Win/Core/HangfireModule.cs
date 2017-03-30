@@ -98,7 +98,7 @@ namespace Hangfire.Topshelf.Core
             // builder.Register(x => new RecurringJobService() { });
             // 註冊 特定類別
             // builder.Register(x => new MyJob1());
-             builder.Register(x => new MyJob2());
+           //  builder.Register(x => new MyJob2());
             // builder.Register(x => new LongRunningJob());
             builder.Register(x => new CalcSpaceJob());
         }

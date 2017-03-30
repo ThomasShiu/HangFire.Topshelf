@@ -120,6 +120,7 @@
     <Compile Include="App_Packages\LibLog.4.2\LibLog.cs" />
     <Compile Include="BaseAppService.cs" />
     <Compile Include="Constants.cs" />
+    <Compile Include="DBConnectionstring.cs" />
     <Compile Include="DelegateModule.cs" />
     <Compile Include="IAppService.cs" />
     <Compile Include="IDependency.cs" />

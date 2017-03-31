@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Web.Http;
 using Hangfire.Console;
 using Hangfire.Dashboard;
@@ -108,8 +109,8 @@ namespace Hangfire.Topshelf.Core
             // app.UseRecurringJob(typeof(RecurringJobService));
 
             app.UseRecurringJob(container);
-            
-            app.UseRecurringJob(HangfireSettings.Instance.RecurringJobFile);
+            if (File.Exists(HangfireSettings.Instance.RecurringJobFile))
+                 app.UseRecurringJob(HangfireSettings.Instance.RecurringJobFile);
 
             #endregion 註冊Job資料
         }

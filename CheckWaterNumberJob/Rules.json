@@ -1,0 +1,33 @@
+﻿{
+  // 開始檢查日期
+  "StartDate": "2017/01/01",
+  // 是否使用今天
+  "UseToDay": false,
+  // 要檢查的對象
+  "VCH": [
+    {
+      "DTable": "000020",
+      "M-D": true,
+      "MTable": "XXXXXX",
+      "VCH_TY": "F051"
+    },
+    {
+      "DTable": "00000",
+      "M-D": true,
+      "MTable": "XXX3XXX",
+      "VCH_TY": "F0531"
+    },
+    {
+      "DTable": "004000",
+      "M-D": true,
+      "MTable": "XXXX5XX",
+      "VCH_TY": "F0351"
+    },
+    {
+      "DTable": "000050",
+      "M-D": true,
+      "MTable": "XXX43XXX",
+      "VCH_TY": "F034551"
+    }
+  ]
+}

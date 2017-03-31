@@ -119,7 +119,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DBConnectionstring.cs" />
     <Compile Include="ISetVchCfgService.cs" />
     <Compile Include="SetVCHCFGJob.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

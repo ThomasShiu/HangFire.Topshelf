@@ -244,10 +244,6 @@
     <Compile Include="Jobs\CalcSpace\CaleFileSpace.cs" />
     <Compile Include="Jobs\CalcSpace\CaleFolderSpace.cs" />
     <Compile Include="Jobs\CalcSpace\ICalcSpace.cs" />
-    <Compile Include="Jobs\Sample\LongRunningJob.cs" />
-    <Compile Include="Jobs\Sample\MyJob1.cs" />
-    <Compile Include="Jobs\Sample\MyJob2.cs" />
-    <Compile Include="Jobs\Sample\RecurringJobService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -275,6 +271,9 @@
       <Project>{ba7b3d02-cbe5-43ed-9328-8ab15f083cf8}</Project>
       <Name>Hangfire.Framework.Win</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Jobs\Sample\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />

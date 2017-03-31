@@ -8,7 +8,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Hangfire.Topshelf.Jobs</RootNamespace>
-    <AssemblyName>Hangfire.Topshelf.Jobs.CheckWaterNumberJob</AssemblyName>
+    <AssemblyName>CCM.Hangfire.Jobs.CheckWaterNumberJob</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
@@ -21,7 +21,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\bin\Debug\Hangfire.Topshelf.Jobs.CheckWaterNumberJob.XML</DocumentationFile>
+    <DocumentationFile>..\bin\Debug\CCM.Hangfire.Jobs.CheckWaterNumberJob.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -30,7 +30,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>..\bin\Release\Hangfire.Topshelf.Jobs.CheckWaterNumberJob.XML</DocumentationFile>
+    <DocumentationFile>..\bin\Release\CCM.Hangfire.Jobs.CheckWaterNumberJob.xml</DocumentationFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Dapper, Version=1.50.2.0, Culture=neutral, processorArchitecture=MSIL">

@@ -110,12 +110,10 @@ this.ScenarioSetup(scenarioInfo);
 #line hidden
             TechTalk.SpecFlow.Table table2 = new TechTalk.SpecFlow.Table(new string[] {
                         "VCH_TY",
-                        "VCH_NO",
-                        "VCH_DT"});
+                        "VCH_NO"});
             table2.AddRow(new string[] {
                         "F712",
-                        "170101003",
-                        "2017/01/04"});
+                        "170104003"});
 #line 17
  testRunner.Then("會有以下資料的產生", ((string)(null)), table2, "那麼");
 #line hidden

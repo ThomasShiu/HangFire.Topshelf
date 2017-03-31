@@ -22,17 +22,16 @@ namespace Hangfire.Topshelf.Jobs
             var startDate = useToDay ? DateTime.Today : context.GetJobData<DateTime>("StartDate");
             var jobdata = context.GetJobData<IList<VchItem>>("ITEM");
             var service = new WaterNumberService(connString.connectionstring);
-            var result = new List<COMT>();
+            var result = new List<ResuleData>();
             // 執行
             foreach (var pair in jobdata)
             {
                 context.WriteLine($"檢查單別為{pair.VCH_TY},是否為為主從表：({pair.MD}) 主表為：{pair.MTable} 子表為：{pair.DTable}");
-                result.AddRange(service.Execute(pair.MTable, startDate));
+                result.Add(service.Execute(startDate));
             }
-
             // 回報
             context.WriteLine($"共更新{result.Count()}筆資料");
-            result.ForEach(r => context.WriteLine($"發現欠缺單號{r.VCH_TY}-{r.VCH_NO},日期為{r.VCH_DT:yyyy/MM/dd}"));
+            //result.ForEach(r => context.WriteLine($"發現欠缺單號{r.VCH_TY}-{r.VCH_NO},日期為{r.VCH_DT:yyyy/MM/dd}"));
             context.WriteLine("完成單別流水號是否有欠缺任務");
         }
     }

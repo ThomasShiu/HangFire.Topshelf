@@ -101,6 +101,8 @@ namespace Hangfire.Topshelf.Core
            //  builder.Register(x => new MyJob2());
             // builder.Register(x => new LongRunningJob());
             builder.Register(x => new CalcSpaceJob());
+            builder.Register(x => new RunCmdJob());
+            builder.Register(x => new ExecExternalJob());
         }
 
         /// <summary>

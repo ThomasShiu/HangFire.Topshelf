@@ -149,7 +149,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.10.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
@@ -244,6 +244,10 @@
     <Compile Include="Jobs\CalcSpace\CaleFileSpace.cs" />
     <Compile Include="Jobs\CalcSpace\CaleFolderSpace.cs" />
     <Compile Include="Jobs\CalcSpace\ICalcSpace.cs" />
+    <Compile Include="Jobs\Process\CmdHelper.cs" />
+    <Compile Include="Jobs\Process\ExecExternalJob.cs" />
+    <Compile Include="Jobs\Process\IProcess.cs" />
+    <Compile Include="Jobs\Process\RunCmdJob.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

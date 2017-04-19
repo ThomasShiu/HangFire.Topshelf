@@ -127,7 +127,15 @@ namespace Hangfire.Topshelf.Core
                 );
 
             foreach (var assembly in assemblies)
-            {
+            {   
+                //System.Console.WriteLine(assembly.FullName);
+                //var types = assembly.GetTypes();
+                //foreach (var tp in types)
+                //{
+                //    System.Console.WriteLine("  "+tp.Namespace);
+                //    System.Console.WriteLine("  " + tp.Name);
+                //}
+                //System.Console.WriteLine("======================================");
                 builder.RegisterAssemblyTypes(assembly)
                     .AsSelf();
             }

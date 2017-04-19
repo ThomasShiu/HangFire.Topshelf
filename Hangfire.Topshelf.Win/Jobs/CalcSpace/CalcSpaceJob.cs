@@ -8,6 +8,19 @@ using Hangfire.Server;
 
 namespace Hangfire.Topshelf.Jobs
 {
+    /*寫入資料庫規格
+      GUID :每個任務碼
+      執行時間
+      使用空間大小
+      類別：CaleSpaceActoinType
+      路徑： 可以用表示
+         1. C:\ 表示磁碟機
+         2. C:\123\ 表示目錄
+         3. C:\123\*.log 表示目錄中特定檔案
+         4. C:\123\CCM.mdf 表示檔案大小
+
+    */
+
     internal enum CaleSpaceActoinType
     {
         /// <summary>

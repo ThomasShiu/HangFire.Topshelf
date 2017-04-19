@@ -6,6 +6,7 @@ using System.Text;
 using Dapper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Hangfire.Framework.Win;
+using Hangfire.Topshelf.Jobs;
 
 namespace Hangfire.Topshelf.Jobs.Tests
 {
@@ -18,7 +19,7 @@ namespace Hangfire.Topshelf.Jobs.Tests
             @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=TestDB;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
         private static readonly string connstirng2 =
-            @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=TestDB2;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
+            @"Data Source=192.168.100.18;Initial Catalog=KSC_15;Persist Security Info=True;User ID=sa;Password=6937937";
 
         private static readonly string ccm_createTableFile = @"CCM_CreateTable.sql";
         private static readonly string ksc_createTableFile = @"KSC_CreateTable.sql";
@@ -44,9 +45,8 @@ namespace Hangfire.Topshelf.Jobs.Tests
 
         #endregion SQL字串
 
-      
-
-        [ClassInitialize()]
+        #region 起始化及還原
+       // [ClassInitialize()]
         public static void Initialize(TestContext testContext)
         {
             // TestDB
@@ -87,7 +87,7 @@ namespace Hangfire.Topshelf.Jobs.Tests
             }
         }
 
-        [ClassCleanup]
+      //  [ClassCleanup]
         public static void Cleanup()
         {
             // TestDB
@@ -124,7 +124,7 @@ namespace Hangfire.Topshelf.Jobs.Tests
             }
         }
 
-        [TestCleanup]
+     //   [TestCleanup]
         public void TestCleanup()
         {  // TestDB
             using (IDbConnection conn = new SqlConnection(connstirng1))
@@ -159,88 +159,89 @@ namespace Hangfire.Topshelf.Jobs.Tests
                 }
             }
         }
+        #endregion
 
         [TestMethod()]
-        public void 台灣轉到昆山_會轉入10筆資料並會繁簡轉換()
+        public void 台灣轉到昆山_會轉入1筆資料並會繁簡轉換()
         {
             // Arrangey
-            using (IDbConnection conn = new SqlConnection(connstirng1))
+            //using (IDbConnection conn = new SqlConnection(connstirng1))
+            //{
+            //    conn.Open();
+            //    var tran = conn.BeginTransaction();
+            //    try
+            //    {
+            //        conn.Execute(SQLSyntaxHelper.ReadSQLFile(ccm_Item), null, tran);
+            //        tran.Commit();
+            //        conn.Close();
+            //    } catch (Exception)
+            //    {
+            //        tran.Rollback();
+            //        throw;
+            //    }
+            //}
+            var target = new CCMToKSC(connstirng2)
             {
-                conn.Open();
-                var tran = conn.BeginTransaction();
-                try
-                {
-                    conn.Execute(SQLSyntaxHelper.ReadSQLFile(ccm_Item), null, tran);
-                    tran.Commit();
-                    conn.Close();
-                } catch (Exception)
-                {
-                    tran.Rollback();
-                    throw;
-                }
-            }
-            var target = new CCMToKSC(connstirng1, connstirng2)
-            {
-                SourecTable = "ITEM",
-                DestinationTable = "ITEM"
+             InsertToTemp = "InsertToTemp.SQL",
+             InsertTempToFormal = "InsertTempToFormal.SQL",
             };
             // Act
-            var actual_Count = target.Execute();
+            var actualCount = target.Execute();
             // Assert
-            var count = 10;
-            var expected = "PS-1000简易型分度盘影像筛选机";
+            var count = 1;
+            var expected = "保护镜";
             // 判斷筆數是否正確
-            Assert.AreEqual(actual_Count, count);
+            Assert.AreEqual(actualCount, count);
             using (IDbConnection conn = new SqlConnection(connstirng2))
             {
                 conn.Open();
                 var actual =
-                    conn.ExecuteScalar<string>(@"Select ITEM_NM from ITEM Where ITEM_NO ='6SPS010-0001'");
+                    conn.ExecuteScalar<string>(@"Select Rtrim(ITEM_NM) from ITEM Where ITEM_NO ='2AMMU0165'");
                 conn.Close();
                 Assert.AreEqual(actual, expected);
             }
         }
 
-        [TestMethod()]
-        public void 昆山轉寧波_原有4筆經更新後變10筆原本4筆也更新成跟昆山一致()
-        {
-            using (IDbConnection conn = new SqlConnection(connstirng2))
-            {
-                conn.Open();
-                var tran = conn.BeginTransaction();
-                try
-                {
-                    // ksc
-                    conn.Execute(SQLSyntaxHelper.ReadSQLFile(ksc_Item), null, tran);
-                    // nbg
-                    conn.Execute(SQLSyntaxHelper.ReadSQLFile(nbg_Item), null, tran);
-                    tran.Commit();
-                    conn.Close();
-                } catch (Exception)
-                {
-                    tran.Rollback();
-                    throw;
-                }
-            }
-            // Arrange
-            var target = new KSCToSubsidiaries(connstirng1, connstirng2);
-            // Act
-            target.SourecTable = "ITEM";
-            target.DestinationTable = "NBG_ITEM";
-            int actual_Count = target.Execute();
-            // Assert
-            var count = 10;
-            var expected = "PSL-1500-C3+PSE/CKS1009";
-            // 判斷筆數是否正確
-            Assert.AreEqual(actual_Count, count);
-            using (IDbConnection conn = new SqlConnection(connstirng2))
-            {
-                conn.Open();
-                var actual =
-                    conn.ExecuteScalar<string>(@"Select ITEM_SP from ITEM Where ITEM_NO ='7SPSL15-0001'");
-                conn.Close();
-                Assert.AreEqual(actual, expected);
-            }
-        }
+        //[TestMethod()]
+        //public void 昆山轉寧波_原有4筆經更新後變10筆原本4筆也更新成跟昆山一致()
+        //{
+        //    using (IDbConnection conn = new SqlConnection(connstirng2))
+        //    {
+        //        conn.Open();
+        //        var tran = conn.BeginTransaction();
+        //        try
+        //        {
+        //            // ksc
+        //            conn.Execute(SQLSyntaxHelper.ReadSQLFile(ksc_Item), null, tran);
+        //            // nbg
+        //            conn.Execute(SQLSyntaxHelper.ReadSQLFile(nbg_Item), null, tran);
+        //            tran.Commit();
+        //            conn.Close();
+        //        } catch (Exception)
+        //        {
+        //            tran.Rollback();
+        //            throw;
+        //        }
+        //    }
+        //    // Arrange
+        //    var target = new KSCToSubsidiaries(connstirng1, connstirng2);
+        //    // Act
+        //    target.SourecTable = "ITEM";
+        //    target.DestinationTable = "NBG_ITEM";
+        //    int actual_Count = target.Execute();
+        //    // Assert
+        //    var count = 10;
+        //    var expected = "PSL-1500-C3+PSE/CKS1009";
+        //    // 判斷筆數是否正確
+        //    Assert.AreEqual(actual_Count, count);
+        //    using (IDbConnection conn = new SqlConnection(connstirng2))
+        //    {
+        //        conn.Open();
+        //        var actual =
+        //            conn.ExecuteScalar<string>(@"Select ITEM_SP from ITEM Where ITEM_NO ='7SPSL15-0001'");
+        //        conn.Close();
+        //        Assert.AreEqual(actual, expected);
+        //    }
+        //}
     }
 }

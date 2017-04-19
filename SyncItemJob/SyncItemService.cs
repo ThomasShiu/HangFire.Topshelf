@@ -24,17 +24,7 @@ namespace Hangfire.Topshelf.Jobs
         {
             _connectionstring = connnstring;
         }
-        /// <summary>
-        /// 定義委託接口處理函數，用於實時處理cmd輸出信息
-        /// </summary>
-        /// <example>
-        /// private void Callback1(String line)
-        /// {
-        ///   textBox1.AppendText(line);
-        ///   textBox1.AppendText(Environment.NewLine);
-        ///   textBox1.ScrollToCaret();
-        /// }
-        /// </example>
+       
         public delegate void Callback(string line);
         public void Execute(string pama1, Callback proc)
         {

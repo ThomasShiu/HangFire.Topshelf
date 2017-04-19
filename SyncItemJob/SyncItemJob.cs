@@ -8,25 +8,29 @@ namespace Hangfire.Topshelf.Jobs
 {
     public class SyncItemJob : IRecurringJob
     {
-        [DisplayName("同步昆山到寧波東莞料號")]
+        [DisplayName("同步料號到各地區")]
         public void Execute(PerformContext context)
         {
-            context.WriteLine($"{DateTime.Now:yyyy/MM/dd HH:mm:ss} Check Warehouse Running ...");
+            context.WriteLine($"{DateTime.Now:yyyy/MM/dd HH:mm:ss} Synchronize data running...");
             // Arrange
             // todo 這里要處理密碼加密的問題
             var connString = context.GetJobData<DBConnectionstring>("ConnectionString");
             context.WriteLine($"ConnectionInfo- IP:{connString.ServerIP} DB:{connString.DBNM} User:{connString.User}");
             var useToDay = context.GetJobData<bool>("UseToDay");
             var startDate = useToDay ? DateTime.Today : context.GetJobData<DateTime>("StartDate");
-           // var service = new WaterNumberService(connString.connectionstring);
+            var toKSCservice = new CCMToKSCService(connString.connectionstring)
+            {
+                InsertToTemp = context.GetJobData<string>("InsertToTemp"),
+                InsertTempToFormal = context.GetJobData<string>("InsertTempToFormal")
+            };
+            context.WriteLine($"從CCM-->KSC筆數為:{toKSCservice.Execute()}");
 
-            // 執行
-          ////  var result = service.Execute(startDate);
-          //  // 回報
-          //  context.WriteLine($"發現欠缺單號情況共有{result.Incompletes.Count()}組");
-          //  context.WriteLine($"發現欠缺單號共有{result.Incompletes.Count()}筆");
-          //  result.MForms.ToList().ForEach(r => context.WriteLine($"發現欠缺單號{r.VCH_TY}-{r.expected},日期為{r.VCH_DT:yyyy/MM/dd}"));
-          //  context.WriteLine("完成單別流水號是否有欠缺任務");
+            var toSubCservice = new KSCToSubService(connString.connectionstring)
+            {
+                ScriptFile = context.GetJobData<string>("ToSubSQL")
+            };
+            context.WriteLine($"從KSC-->Sub筆數為:{toSubCservice.Execute()}");
+            context.WriteLine("完成同步料號到各地區任務");
         }
     }
 }

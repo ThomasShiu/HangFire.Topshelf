@@ -8,9 +8,7 @@ using Hangfire.Server;
 namespace Hangfire.Topshelf.Jobs
 {
     public class SyncJob : IRecurringJob
-    {
-       
-
+    {      
         [DisplayName("同步全盈廠刷卡機資料")]
         public void Execute(PerformContext context)
         {

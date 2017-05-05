@@ -180,7 +180,7 @@ namespace Hangfire.Topshelf.Jobs.Tests
             //        throw;
             //    }
             //}
-            var target = new CCMToKSC(connstirng2)
+            var target = new CCMToKSCService(connstirng2)
             {
              InsertToTemp = "InsertToTemp.SQL",
              InsertTempToFormal = "InsertTempToFormal.SQL",

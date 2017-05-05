@@ -13,7 +13,7 @@ namespace Hangfire.Topshelf.Jobs
     /// Class CCMToKSC.
     /// </summary>
     // ReSharper disable once InconsistentNaming
-    internal class CCMToKSCService
+    public class CCMToKSCService
     {
         public string Connstirng { get; }
 

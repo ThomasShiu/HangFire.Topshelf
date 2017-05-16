@@ -1,44 +1,83 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Dapper;
 using Hangfire.Framework.Win;
+using Hangfire.Topshelf.Jobs.Model;
 
 namespace Hangfire.Topshelf.Jobs
 {
-   public class H0451Service : IConfirmAction
+  /// <summary>
+  /// 人事任用作業
+  /// </summary>
+  public class H0451Service:IConfirmAction
+  {
+    public void Confirm(Callback context, string connectionstring, DateTime execDate)
     {
-        public delegate void Callback(string line);
-        public string ConnString { get; set; }    
-       
-        public H0451Service(string connectionstring)
-        {
-            ConnString = connectionstring;          
-        }
-        public void Confirm(Callback context)
-        {  // 計時用
-            Stopwatch sw = new Stopwatch();
-           
-            sw.Reset();
-            sw.Start();
-            int result = 0;
-            using (IDbConnection Conn = new SqlConnection(ConnString))
+      // 計時用
+      Stopwatch sw = new Stopwatch();
+      sw.Reset();
+      sw.Start();
+      using (IDbConnection Conn = new SqlConnection(connectionstring))
+      {
+        var cSQL = $"Select * From HR_CHGENR where FMSTS ='B' and EFFDT ='{execDate:yyyy/MM/dd}'";
+        var qry = Conn.Query<HR_CHGENR_Query>(cSQL).AsList<HR_CHGENR_Query>();
+        if (qry.Count != 0) {
+        //  var tran = Conn.BeginTransaction();
+          try
+          {
+            foreach (var item in qry)
             {
-                throw new NotImplementedException();
-
-
-                sw.Stop();
-                context($"SQL規則執行作業執行完成-觸發器({triggerMapDataValueGID}),花費時間為：{sw.ElapsedMilliseconds}");
+              var sql = SQLSyntaxHelper.ReadSQLFile("HR_CHGENR_Cr.sql");
+              sql = string.Format(sql, item.FMNO,item.NEMPLYID);
+              Conn.Execute(sql);              
             }
+        //    tran.Rollback();
+          } catch (Exception )
+          {
+       //     tran.Rollback();
+            
+            throw;
+          }
         }
-
-        public void UnConfirm()
-        {
-            throw new NotImplementedException();
-        }
+      }
+      sw.Stop();
+      context($"確認任用單完成,花費時間為：{sw.ElapsedMilliseconds}");
     }
+
+    public void UnConfirm(Callback context, string connectionstring, DateTime execDate)
+    {
+      // 計時用
+      Stopwatch sw = new Stopwatch();
+      sw.Reset();
+      sw.Start();
+      using (IDbConnection Conn = new SqlConnection(connectionstring))
+      {
+        var cSQL = $"Select * From HR_CHGENR where FMSTS ='B' and EFFDT ='{execDate:yyyy/MM/dd}'";
+        var qry = Conn.Query<HR_CHGENR_Query>(cSQL).AsList<HR_CHGENR_Query>();
+        if (qry.Count != 0)
+        {
+          //  var tran = Conn.BeginTransaction();
+          try
+          {
+            foreach (var item in qry)
+            {
+              var sql = SQLSyntaxHelper.ReadSQLFile("HR_CHGENR_DL.sql");
+              sql = string.Format(sql, item.FMNO, item.NEMPLYID);
+              Conn.Execute(sql);
+            }
+            //    tran.Rollback();
+          } catch (Exception)
+          {
+            //     tran.Rollback();
+
+            throw;
+          }
+        }
+      }
+      sw.Stop();
+      context($"取消確認任用單完成,花費時間為：{sw.ElapsedMilliseconds}");
+    }
+  }
 }

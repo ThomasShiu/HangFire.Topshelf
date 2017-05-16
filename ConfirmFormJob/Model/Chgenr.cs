@@ -1,175 +1,161 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Data.Linq.Mapping;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Hangfire.Topshelf.Jobs.Model
 {
 
-    /// <summary>
-    /// HR_CHGENR(人事任用單)
+  public class HR_CHGENR_Query
+  {
+    /// <summary> 
+    /// 任免異動單編號
     /// </summary>
-  
-    public class HR_CHGENR
-    {       
-        [Description("任免異動單編號")]
-        public string FMNO; // nvarchar(15)
+    public string FMNO; // nvarchar(15)
 
-        [MaxLength(10)]
-        [Description("新員工編號")]
-        public string NEMPLYID; // nvarchar(10)
+    /// <summary> 
+    /// 新員工編號
+    /// </summary>    
+    public string NEMPLYID { get; set; }
+  }
 
-        [MaxLength(12)]
-        [Description("員工姓名")]
-        public string EMPLYNM; // nvarchar(12)
+  /// <summary>
+  /// HR_CHGENR(人事任用單)
+  /// </summary>
 
-        [MaxLength(10)]
-        [Description("身分證字號")]
-        public string PIDNO; // nvarchar(10)
+  public class HR_CHGENR
+  {
+    /// <summary> 
+    /// 任免異動單編號
+    /// </summary>
+    public string FMNO; // nvarchar(15)
+    /// <summary> 
+    /// 員工姓名
+    /// </summary>
+    public string EMPLYNM; // nvarchar(12)
 
-        [MaxLength(2)]
-        [Description("性別")]
-        public string SEX; // nvarchar(2)
+    /// <summary>  
+    /// 身分證字號
+    /// </summary>
+    public string PIDNO; // nvarchar(10)
 
-        [MaxLength(1)]
-        [Description("婚姻")]
-        public string MARY; // nvarchar(1)
+    /// <summary>  
+    /// 性別  
+    /// </summary>
+    public string SEX; // nvarchar(2)
 
-        [MaxLength(1)]
-        [Description("異動別")]
-        public string HRCTP; // nvarchar(1)
+    /// <summary> 
+    ///婚姻 
+    ///</summary>
+    public string MARY; // nvarchar(1)
 
-        [MaxLength(5)]
-        [Description("血型")]
-        public string BLOOD; // nvarchar(5)
+    /// <summary>  
+    /// 異動別  
+    ///</summary>
+    public string HRCTP; // nvarchar(1)
 
-        [MaxLength(60)]
-        [Description("備註")]
-        public string REMARK; // nvarchar(60)
+    /// <summary> 
+    /// 血型  
+    ///</summary>
+    public string BLOOD; // nvarchar(5)
 
-        [Description("到職日")]
-        public DateTime? REGDT; // datetime
+    /// <summary> 
+    /// 備註  
+    ///</summary>
+    public string REMARK; // nvarchar(60)
 
-        [Description("生效日")]
-        public DateTime? EFFDT; // datetime
+    /// <summary> 
+    /// 到職日  
+    ///</summary>
+    public DateTime? REGDT; // datetime
 
-        [Description("建檔日")]
-        public DateTime? CRDT; // datetime
+    /// <summary>  
+    /// 生效日  
+    ///</summary>
+    public DateTime? EFFDT; // datetime
 
-        [MaxLength(2)]
-        [Description("單況")]
-        public string FMSTS; // nvarchar(2)
+    /// <summary> 
+    /// 建檔日 
+    ///</summary>
+    public DateTime? CRDT; // datetime
 
-        [MaxLength(4)]
-        [Description("廠別代號")]
-        public string FA_NO; // nvarchar(4)
+    /// <summary> 
+    /// 單況  
+    ///</summary>
+    public string FMSTS; // nvarchar(2)
 
-        [MaxLength(3)]
-        [Description("公司代碼")]
-        public string COMID; // nvarchar(3)
+    /// <summary>  廠別代號  </summary>
+    public string FA_NO; // nvarchar(4)
 
-        [MaxLength(6)]
-        [Description("部門代號")]
-        public string DEPID; // nvarchar(6)
+    /// <summary>  公司代碼  </summary>
+    public string COMID; // nvarchar(3)
 
-        [MaxLength(2)]
-        [Description("職務代碼")]
-        public string JOBID; // nvarchar(2)
+    /// <summary>  部門代號  </summary>
+    public string DEPID; // nvarchar(6)
 
-        [MaxLength(3)]
-        [Description("國籍代碼")]
-        public string NATION; // nvarchar(3)
+    /// <summary>  職務代碼  </summary>
+    public string JOBID; // nvarchar(2)
 
-        [MaxLength(254)]
-        [Description("戶籍地址")]
-        public string REGADRS; // nvarchar(254)
+    /// <summary>  國籍代碼  </summary>
+    public string NATION; // nvarchar(3)
 
-        [MaxLength(254)]
-        [Description("通訊地址")]
-        public string MAILADRS; // nvarchar(254)
+    /// <summary>  戶籍地址  </summary>
+    public string REGADRS; // nvarchar(254)
 
-        [MaxLength(15)]
-        [Description("行動電話")]
-        public string HP; // nvarchar(15)
+    /// <summary>  通訊地址  </summary>
+    public string MAILADRS; // nvarchar(254)
 
-        [MaxLength(15)]
-        [Description("連絡電話")]
-        public string CONTEL; // nvarchar(15)
+    /// <summary>  行動電話  </summary>
+    public string HP; // nvarchar(15)
 
-        [MaxLength(15)]
-        [Description("匯款帳戶")]
-        public string SANO; // nvarchar(15)
+    /// <summary>  連絡電話  </summary>
+    public string CONTEL; // nvarchar(15)
 
-        [MaxLength(12)]
-        [Description("連絡人姓名")]
-        public string ECNTNM; // nvarchar(12)
+    /// <summary>  匯款帳戶  </summary>
+    public string SANO; // nvarchar(15)
 
-        [MaxLength(20)]
-        [Description("連絡人電話")]
-        public string ECNTPHONE; // nvarchar(20)
+    /// <summary>  連絡人姓名  </summary>
+    public string ECNTNM; // nvarchar(12)
 
-        [MaxLength(80)]
-        [Description("匯款帳名")]
-        public string SANM; // nvarchar(80)
+    /// <summary>  連絡人電話  </summary>
+    public string ECNTPHONE; // nvarchar(20)
 
-        [MaxLength(15)]
-        [Description("連絡行動電話")]
-        public string PHPS; // nvarchar(15)
+    /// <summary>  匯款帳名  </summary>
+    public string SANM; // nvarchar(80)
 
-        [MaxLength(2)]
-        [Description("連絡人關係")]
-        public string NOM; // nvarchar(2)
+    /// <summary>  連絡行動電話  </summary>
+    public string PHPS; // nvarchar(15)
 
-        [MaxLength(10)]
-        [Description("職務代理人")]
-        public string EMPLYID; // nvarchar(10)
+    /// <summary>  連絡人關係  </summary>
+    public string NOM; // nvarchar(2)
 
-        [MaxLength(10)]
-        [Description("承辦人員")]
-        public string PEMPLYID; // nvarchar(10)
+    /// <summary>  職務代理人  </summary>
+    public string EMPLYID; // nvarchar(10)
 
-        [MaxLength(1)]
-        [Description("是否住宿")]
-        public string PERD_05; // nvarchar(1)
+    /// <summary>  承辦人員  </summary>
+    public string PEMPLYID; // nvarchar(10)
 
-        [MaxLength(1)]
-        [Description("是否殘障")]
-        public string PERD_06; // nvarchar(1)
+    /// <summary>  是否住宿  </summary>
+    public string PERD_05; // nvarchar(1)
 
-        [MaxLength(10)]
-        [Description("地區")]
-        public string OWNCITY; // nvarchar(10)
+    ///  <summary> 
+    ///  是否殘障 
+    ///  </summary>
+    public string PERD_06; // nvarchar(1)
 
-        [MaxLength(13)]
-        public string EXC_INSDBID; // nvarchar(13)
+    ///  <summary>
+    ///  地區 
+    ///  </summary>
+    public string OWNCITY; // nvarchar(10)
 
-        public DateTime? EXC_INSDATE; // smalldatetime
+    /// <summary>  生日  </summary>
+    public DateTime? BRTHDT; // datetime
 
-        [MaxLength(13)]
-        public string EXC_UPDDBID; // nvarchar(13)
+    /// <summary> 
+    /// 機構代號  
+    ///</summary>
+    public string BANKID; // nvarchar(9)
 
-        public DateTime? EXC_UPDDATE; // smalldatetime
-
-        [MaxLength(5)]
-        public string EXC_SYSOWNR; // nvarchar(5)
-
-        [MaxLength(1)]
-        public string EXC_ISLOCKED; // nvarchar(1)
-
-        [Description("生日")]
-        public DateTime? BRTHDT; // datetime
-
-        [MaxLength(9)]
-        [Description("機構代號")]
-        public string BANKID; // nvarchar(9)
-
-        [MaxLength(1)]
-        [Description("班別代號")]
-        public string SFT_NO; // nvarchar(1)
-    }
-
-
-
+    ///<summary
+    /// 班別代號  
+    ///</summary>
+    public string SFT_NO; // nvarchar(1)
+  }
 }

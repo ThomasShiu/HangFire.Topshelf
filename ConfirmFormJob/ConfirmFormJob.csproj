@@ -126,8 +126,13 @@
     <Compile Include="ConfirmFactory.cs" />
     <Compile Include="ConfirmFormJob.cs" />
     <Compile Include="H0451Service.cs" />
+    <Compile Include="H0452Service.cs" />
+    <Compile Include="H0453Service.cs" />
+    <Compile Include="H0454Service.cs" />
     <Compile Include="IConfirmAction.cs" />
     <Compile Include="Model\Chgenr.cs" />
+    <Compile Include="Model\HR_CHGENR_Query.cs" />
+    <Compile Include="Model\HR_CHGTOR_Query.cs" />
     <Compile Include="Model\IN_EMPLYM.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -146,7 +151,9 @@
     <Content Include="Script\HR_CHGENR_Cr.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Script\HR_CHGENR_DL.sql" />
+    <Content Include="Script\HR_CHGENR_Dl.sql" />
+    <Content Include="Script\HR_CHGTOR_Dl.sql" />
+    <Content Include="Script\HR_CHGTOR_Cr.sql" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

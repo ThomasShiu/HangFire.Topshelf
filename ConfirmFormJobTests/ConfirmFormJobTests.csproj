@@ -52,6 +52,12 @@
   </Choose>
   <ItemGroup>
     <Compile Include="H0451ServiceTests.cs" />
+    <Compile Include="H0452ServiceTests.cs" />
+    <Compile Include="H0453ServiceTests.cs" />
+    <Compile Include="H0454ServiceTests.cs" />
+    <Compile Include="H0455ServiceTests.cs" />
+    <Compile Include="H0456ServiceTests.cs" />
+    <Compile Include="H0457ServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

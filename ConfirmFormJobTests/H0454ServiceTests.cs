@@ -4,7 +4,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Hangfire.Topshelf.Jobs.Tests
 {
   [TestClass()]
-  public class H0451ServiceTests
+  public class H0454ServiceTests
   {
     public delegate void Callback(string line);
 
@@ -13,27 +13,17 @@ namespace Hangfire.Topshelf.Jobs.Tests
 
     [TestMethod()]
     [TestCategory("人事單據")]
-    public void 任用單確認測試()
+    public void 健保變更單確認測試()
     {
       // Arrange
-      var service = new H0451Service();
+      var service = new H0454Service();
       // Act
-      service.Confirm(WriteLine, connstirng, new DateTime(2017, 5, 2));
+      service.Confirm(WriteLine, connstirng, new DateTime(2017, 3, 1));
       // Assert
       Assert.AreEqual(true, true);
     }
-    [TestMethod()]
-    [TestCategory("人事單據")]
-    public void 任用單取消確認測試()
-    {
-      // Arrange
-      var service = new H0451Service();
-      // Act
-      service.UnConfirm(WriteLine, connstirng, new DateTime(2017, 5, 2));
-      // Assert
-      Assert.AreEqual(true, true);
-    }
-      public void WriteLine(string line)
+
+    public void WriteLine(string line)
     {
     }
   }

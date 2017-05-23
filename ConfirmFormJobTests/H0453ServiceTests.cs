@@ -1,10 +1,16 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Hangfire.Topshelf.Jobs;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Hangfire.Topshelf.Jobs.Tests
 {
   [TestClass()]
-  public class H0451ServiceTests
+ 
+  public class H0453ServiceTests
   {
     public delegate void Callback(string line);
 
@@ -13,27 +19,28 @@ namespace Hangfire.Topshelf.Jobs.Tests
 
     [TestMethod()]
     [TestCategory("人事單據")]
-    public void 任用單確認測試()
+    public void 人事異動單確認測試()
     {
       // Arrange
-      var service = new H0451Service();
+      var service = new H0453Service();
       // Act
-      service.Confirm(WriteLine, connstirng, new DateTime(2017, 5, 2));
+      service.Confirm(WriteLine, connstirng, new DateTime(2017, 4, 1));
       // Assert
       Assert.AreEqual(true, true);
     }
+
     [TestMethod()]
     [TestCategory("人事單據")]
-    public void 任用單取消確認測試()
+    public void 人事異動單取消確認測試()
     {
       // Arrange
-      var service = new H0451Service();
+      var service = new H0453Service();
       // Act
-      service.UnConfirm(WriteLine, connstirng, new DateTime(2017, 5, 2));
+      service.UnConfirm(WriteLine, connstirng, new DateTime(2017, 4, 1));
       // Assert
       Assert.AreEqual(true, true);
     }
-      public void WriteLine(string line)
+    public void WriteLine(string line)
     {
     }
   }

@@ -1,4 +1,4 @@
-﻿namespace Hangfire.Topshelf.Jobs.ConfirmFormJob
+﻿namespace Hangfire.Topshelf.Jobs
 {
   public enum ConfirmActionType
   {

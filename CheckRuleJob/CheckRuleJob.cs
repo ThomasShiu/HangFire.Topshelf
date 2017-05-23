@@ -37,7 +37,7 @@ namespace Hangfire.Topshelf.Jobs
             var result = service.Execute(context.WriteLine);
             // 回報
             context.WriteLine($"共執行了{result}項目");
-            context.WriteLine("完成規則檢查任務");      
+            context.WriteLine("完成規則檢查任務");     
         }
     }  
 }

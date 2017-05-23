@@ -2,6 +2,9 @@
   人事任用單確認時產生對應單資料
   建立日期：2017/05/16
 */
+-- 更新結案日期及狀態 FMSTS(單況):A:待確認;B:已確認;C:已作廢;D:已結案;E:變更申請中
+Update HR_CHGENR Set CLDT = GetDate() , FMSTS = 'D' where FMNO = '{0}';
+
 -- 人事主檔(HR_EMPLYM)
 Delete From HR_EMPLYM where EMPLYID ='{1}';
 INSERT INTO HR_EMPLYM

@@ -4,7 +4,7 @@ using Hangfire.Console;
 using Hangfire.RecurringJobExtensions;
 using Hangfire.Server;
 
-namespace Hangfire.Topshelf.Jobs.ConfirmFormJob
+namespace Hangfire.Topshelf.Jobs
 {
   public class ConfirmFormJob:IRecurringJob
   {

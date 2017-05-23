@@ -21,7 +21,7 @@ namespace Hangfire.Topshelf.Jobs
       sw.Start();
       using (IDbConnection Conn = new SqlConnection(connectionstring))
       {
-        var cSQL = $"Select * From HR_CHGTOR where FMSTS ='B' and FLDT ='{execDate:yyyy/MM/dd}'";
+        var cSQL = $"Select FMNO, EMPLYID, FLDT From HR_CHGTOR where FMSTS ='B' and FLDT <='{execDate:yyyy/MM/dd}'";
         var qry = Conn.Query<HR_CHGTOR_Query>(cSQL).AsList<HR_CHGTOR_Query>();
         if (qry.Count != 0)
         {
@@ -32,7 +32,7 @@ namespace Hangfire.Topshelf.Jobs
             foreach (var item in qry)
             {
               // C_STA(狀態):A:在職;B:留職停薪;C:留職不停薪;D:離職
-              var sql = string.Format(csql,item.FLDT,item.FMNO,"D",item.EMPLYID);
+              var sql = string.Format(csql, item.FLDT, item.FMNO, "D", item.EMPLYID);
               Conn.Execute(sql);
             }
             //    tran.Rollback();
@@ -55,14 +55,17 @@ namespace Hangfire.Topshelf.Jobs
     /// <param name="execDate"></param>
     public void UnConfirm(Callback context, string connectionstring, DateTime execDate)
     {
+      // todo levi 未測試完成
+      context($"取消確認離職單未完成功能");
+      return;
       // 計時用
       Stopwatch sw = new Stopwatch();
       sw.Reset();
       sw.Start();
       using (IDbConnection Conn = new SqlConnection(connectionstring))
       {
-        var cSQL = $"Select * From HR_CHGENR where FMSTS ='B' and EFFDT ='{execDate:yyyy/MM/dd}'";
-        var qry = Conn.Query<HR_CHGENR_Query>(cSQL).AsList<HR_CHGENR_Query>();
+        var cSQL = $"Select FMNO, EMPLYID, FLDT From HR_CHGTOR where FMSTS ='B' and FLDT ='{execDate:yyyy/MM/dd}'";
+        var qry = Conn.Query<HR_CHGTOR_Query>(cSQL).AsList<HR_CHGTOR_Query>();
         if (qry.Count != 0)
         {
           //  var tran = Conn.BeginTransaction();
@@ -71,7 +74,7 @@ namespace Hangfire.Topshelf.Jobs
             var csql = SQLSyntaxHelper.ReadSQLFile("HR_CHGTOR_Dl.sql");
             foreach (var item in qry)
             {
-              var sql = string.Format(csql, item.FMNO, item.NEMPLYID);
+              var sql = string.Format(csql, item.EMPLYID);
               Conn.Execute(sql);
             }
             //    tran.Rollback();

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Hangfire.Topshelf.Jobs.ConfirmFormJob
+﻿namespace Hangfire.Topshelf.Jobs
 {
   /// <summary>
   /// 確認類別工廠
@@ -11,24 +9,30 @@ namespace Hangfire.Topshelf.Jobs.ConfirmFormJob
     {
       switch (actionType)
       {
-        case ConfirmActionType.Appointment:
-          return new H0451Service();        
-        case ConfirmActionType.Leave:
-          break;
-        case ConfirmActionType.Change:
-          break;
-        case ConfirmActionType.Salary:
-          break;
-        case ConfirmActionType.Health:
-          break;
-        case ConfirmActionType.Labor:
-          break;
-        case ConfirmActionType.Laborious:
-          break;
+        case ConfirmActionType.Appointment:  // 人事任用
+          return new H0451Service();
+
+        case ConfirmActionType.Leave:        // 離職單
+          return new H0451Service();
+
+        case ConfirmActionType.Change:       // 人事異動單
+          return new H0451Service();
+
+        case ConfirmActionType.Salary:       // 薪資變更單
+          return new H0451Service();
+
+        case ConfirmActionType.Health:       // 健保變更單
+          return new H0451Service();
+
+        case ConfirmActionType.Labor:        // 勞保變更單
+          return new H0451Service();
+
+        case ConfirmActionType.Laborious:    // 勞退變更單
+          return new H0451Service();
+
         default:
-          break;
+          return null;
       }
-      return null;
     }
   }
 }

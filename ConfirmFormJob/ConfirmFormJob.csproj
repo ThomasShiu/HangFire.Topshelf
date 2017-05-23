@@ -129,11 +129,20 @@
     <Compile Include="H0452Service.cs" />
     <Compile Include="H0453Service.cs" />
     <Compile Include="H0454Service.cs" />
+    <Compile Include="H0455Service.cs" />
+    <Compile Include="H0456Service.cs" />
+    <Compile Include="H0457Service.cs" />
     <Compile Include="IConfirmAction.cs" />
-    <Compile Include="Model\Chgenr.cs" />
     <Compile Include="Model\HR_CHGENR_Query.cs" />
+    <Compile Include="Model\HR_CHGJOB_Query.cs" />
+    <Compile Include="Model\HR_CHGJOB_Query_UnConfirm.cs" />
     <Compile Include="Model\HR_CHGTOR_Query.cs" />
-    <Compile Include="Model\IN_EMPLYM.cs" />
+    <Compile Include="Model\HR_HISCHD_Query.cs" />
+    <Compile Include="Model\HR_HISCHM_Query.cs" />
+    <Compile Include="Model\HR_LISCHM_Query.cs" />
+    <Compile Include="Model\HR_LPSCHM_Query.cs" />
+    <Compile Include="Model\HR_PAYCHD_Query.cs" />
+    <Compile Include="Model\HR_PAYCHM_Query.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -148,12 +157,42 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Script\HR_LPSCHM_Cr.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Script\HR_LISCHM_Cr.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Script\HR_HISCHD_Cr.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Script\HR_HISCHM_Cr.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Script\HR_PAYPMS_Cr.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Script\HR_PAYCHM_Cr.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Script\HR_CHGENR_Cr.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="Script\HR_CHGENR_Dl.sql" />
-    <Content Include="Script\HR_CHGTOR_Dl.sql" />
-    <Content Include="Script\HR_CHGTOR_Cr.sql" />
+    <Content Include="Script\HR_CHGENR_Dl.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Script\HR_CHGJOB_Dl.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Script\HR_CHGJOB_Cr.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Script\HR_CHGTOR_Dl.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Script\HR_CHGTOR_Cr.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

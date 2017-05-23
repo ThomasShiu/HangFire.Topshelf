@@ -12,4 +12,6 @@
     /// </summary>    
     public string NEMPLYID { get; set; }
   }
+
+
 }

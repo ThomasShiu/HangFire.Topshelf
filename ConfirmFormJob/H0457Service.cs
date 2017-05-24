@@ -28,7 +28,7 @@ namespace Hangfire.Topshelf.Jobs
       using (IDbConnection Conn = new SqlConnection(connectionstring))
       {
         #region HR_PAYSET 員工薪資設定檔
-        var cSQL = $"Select EMPLYID, BAS_SLY, ALP_RWD, C_OVT, C_LPS_TY, IID_NO, PAYTP, PAYROLLTP, OT_TY, FMNO From HR_PAYCHM where C_STA ='CF' and CRDT ='{execDate:yyyy/MM/dd}'";
+        var cSQL = $"Select EMPLYID, BAS_SLY, ALP_RWD, C_OVT, C_LPS_TY, IID_NO, PAYTP, PAYROLLTP, OT_TY, FMNO From HR_PAYCHM where C_STA ='CF' and CRDT <='{execDate:yyyy/MM/dd}'";
         var qry = Conn.Query<HR_PAYCHM_Query>(cSQL).AsList<HR_PAYCHM_Query>();
         if (qry.Count != 0)
         {

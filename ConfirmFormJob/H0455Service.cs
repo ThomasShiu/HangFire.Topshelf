@@ -22,7 +22,7 @@ namespace Hangfire.Topshelf.Jobs
       using (IDbConnection Conn = new SqlConnection(connectionstring))
       {
         
-        var cSQL = $"SELECT FMNO, EMPLYID, DDT  FROM HR_LISCHM WHERE FMSTS = 'CF' AND DDT ='{execDate:yyyy/MM/dd}'";
+        var cSQL = $"SELECT FMNO, EMPLYID, DDT  FROM HR_LISCHM WHERE FMSTS = 'CF' AND DDT <='{execDate:yyyy/MM/dd}'";
         var qry = Conn.Query<HR_LISCHM_Query>(cSQL).AsList<HR_LISCHM_Query>();
         if (qry.Count != 0)
         {

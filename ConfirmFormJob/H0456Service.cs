@@ -22,7 +22,7 @@ namespace Hangfire.Topshelf.Jobs
       using (IDbConnection Conn = new SqlConnection(connectionstring))
       {
         #region 健保變更檔(HR_HISCHM)
-        var cSQL = $"Select FMNO,EMPLYID,CRDT FROM HR_LPSCHM WHERE FMSTS='CF' AND CRDT ='{execDate:yyyy/MM/dd}'";
+        var cSQL = $"Select FMNO,EMPLYID,CRDT FROM HR_LPSCHM WHERE FMSTS='CF' AND CRDT <='{execDate:yyyy/MM/dd}'";
         var qry = Conn.Query<HR_LPSCHM_Query>(cSQL).AsList<HR_LPSCHM_Query>();
         if (qry.Count != 0)
         {

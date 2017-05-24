@@ -1,7 +1,11 @@
 ﻿/* 
   薪資變更單確認時產生對應單資料
   建立日期：2017/05/16
+  薪資變更檔(HR_PAYCHM)
 */
+
+-- 更新結案日期及狀態 C_STA(單況):OP:待確認;CF:己確認;CC:作廢;CL:結案
+Update HR_PAYCHM Set CLDT = GetDate() , FMSTS = 'CL' where FMNO = '{9}';
 
 -- 員工薪資設定檔(HR_PAYSET)
 IF Not EXISTS (SELECT EMPLYID FROM HR_PAYSET WHERE EMPLYID ='{0}') -- 新增

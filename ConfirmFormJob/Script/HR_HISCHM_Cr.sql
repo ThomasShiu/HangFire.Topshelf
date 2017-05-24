@@ -1,8 +1,13 @@
 ﻿/* 
   健保變更單確認時產生對應單資料
   建立日期：2017/05/16
+  健保變更檔(HR_HISCHM)
 */
--- 健保變更檔(HR_HISCHM)
+
+-- 更新結案日期及狀態 FMSTS(單況):OP:待確認;CF:己確認;CC:作廢;CL:結案
+Update HR_HISCHM Set CLDT = GetDate() , FMSTS = 'CL' where FMNO = '{1}';
+
+
 -- 將現行資料移到異動記錄檔去                                                                                    
 INSERT INTO HR_HISREG                                                                              
            (EMPLYID , CHGDT , HITM , CHG_TY , AMT , ADDDT , RELDT ,                                

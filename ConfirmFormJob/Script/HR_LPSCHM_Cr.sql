@@ -1,8 +1,11 @@
-﻿/* 
+﻿
+/* 
   勞保變更單確認時產生對應單資料
   建立日期：2017/05/23
    勞退變更檔(HR_LPSCHM)
 */
+-- 更新結案日期及狀態 FMSTS(單況):OP:待確認;CF:己確認;CC:作廢;CL:結案
+Update HR_LPSCHM Set CLDT = GetDate() , FMSTS = 'CL' where FMNO = '{1}';
 
 -- 將現行資料移到異動記錄檔去                                                                           
 INSERT INTO HR_LPSREG(CHGDT , EMPLYID , LTP , TITM , AMT , REMARK , C_SOURCE ,                      

@@ -74,9 +74,9 @@ namespace Hangfire.Topshelf.Jobs
             {
               var sql = string.Format(csql ,item.CHTY
                                            ,item.EMPLYID
-                                           ,item.PMS_NO
-                                           ,item.AMT
                                            ,item.FITEM
+                                           ,item.PMS_NO
+                                           ,item.AMT                                       
                                            ,item.C_OVT
                                            ,item.C_FRL
                                            ,item.C_TAX);

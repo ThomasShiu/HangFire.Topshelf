@@ -1,7 +1,15 @@
 ﻿{
   "ConnectionStrings": {
     "HRDBR": "Data Source=192.168.100.11;Initial Catalog=HRSDBR53;Persist Security Info=True;User ID=sa;Password=6937937",
-    "HAMS.DB": "Data Source=D:\30_Code\Test_Case\HAMS.mdb;Locale Identifier=1033;Jet OLEDB:Engine Type=5;Persist Security Info=True",
-    "HAMS.ThisYearDB": "Data Source=D:\30_Code\Test_Case\HAMS_2017.mdb;Locale Identifier=1033;Jet OLEDB:Engine Type=5;Persist Security Info=True"
+    "HAMS.DB": "Data Source=C:\\Program Files (x86)\\HAMS-19\\HAMS.mdb;Locale Identifier=1033;Jet OLEDB:Engine Type=5;Persist Security Info=True",
+    "HAMS.ThisYearDB": "Data Source=C:\\Program Files (x86)\\HAMS-19\\HAMS_2017.mdb;Locale Identifier=1033;Jet OLEDB:Engine Type=5;Persist Security Info=True"
   }
 }
+
+//{
+//  "ConnectionStrings": {
+//    "HRDBR": "Data Source=192.168.100.11;Initial Catalog=HRSDBR53;Persist Security Info=True;User ID=sa;Password=6937937",
+//    "HAMS.DB": "Data Source=D:\30_Code\Test_Case\HAMS.mdb;Locale Identifier=1033;Jet OLEDB:Engine Type=5;Persist Security Info=True",
+//    "HAMS.ThisYearDB": "Data Source=D:\30_Code\Test_Case\HAMS_2017.mdb;Locale Identifier=1033;Jet OLEDB:Engine Type=5;Persist Security Info=True"
+//  }
+//}

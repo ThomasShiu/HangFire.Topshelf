@@ -1,33 +1,665 @@
 ﻿[
+    {
+        "job-name": "[100.109]計算C槽下Backup目錄大小",
+        "job-type": "Hangfire.Topshelf.Jobs.CalcSpaceJob, Hangfire.Topshelf.Win",
+        "cron-expression": "0 5 * * * ",
+        "timezone": "Taipei Standard Time",
+        "queue": "jobs",
+        "job-data": {
+            "Type": "1",
+            "Path": "C:\\Backup\\",
+            "FileName": "",
+            "Drive": "C",
+            "searchPattern": "*.*"
+        }
+    },
+    {
+        "job-name": "每日早上8:30同步刷卡資料",
+        "job-type": "Hangfire.Topshelf.Jobs.SyncJob, CCM.Hangfire.Jobs.SyncLogJob",
+        "cron-expression": "30 8 * * * ",
+        "timezone": "Taipei Standard Time",
+        "queue": "jobs"
+    },
+    {
+        "job-name": "每日早上8:10同步刷卡資料",
+        "job-type": "Hangfire.Topshelf.Jobs.SyncJob, CCM.Hangfire.Jobs.SyncLogJob",
+        "cron-expression": "10 8 * * * ",
+        "timezone": "Taipei Standard Time",
+        "queue": "jobs"
+    },
+    {
+        "job-name": "每日下午18:00同步刷卡資料",
+        "job-type": "Hangfire.Topshelf.Jobs.SyncJob, CCM.Hangfire.Jobs.SyncLogJob",
+        "cron-expression": "0 18 * * * ",
+        "timezone": "Taipei Standard Time",
+        "queue": "jobs"
+    },
+    {
+        "job-name": "每日晚上23:50同步刷卡資料",
+        "job-type": "Hangfire.Topshelf.Jobs.SyncJob, CCM.Hangfire.Jobs.SyncLogJob",
+        "cron-expression": "50 23 * * * ",
+        "timezone": "Taipei Standard Time",
+        "queue": "jobs"
+    },
   {
-    "job-name": "計算目錄大小",
-    "job-type": "Hangfire.Topshelf.Jobs.CalcSpaceJob, Hangfire.Topshelf.Win",
-    "cron-expression": "*/1 * * * *",
-    // "cron-expression": "0 0 5 1/1 * ", 每日5點執行
-    "queue": "jobs",
-    "job-data": {
-      "Type": "1",
-      "Path": "D:\\30_Code\\Project_Case\\CCM.Hangfire.Topshelf\\Hangfire.Topshelf.tests\\obj",
-      "FileName": "",
-      "Drive": "C",
-      "searchPattern": "*.*"
-    }
+    "job-name": "每日中午12:30同步刷卡資料",
+    "job-type": "Hangfire.Topshelf.Jobs.SyncJob, CCM.Hangfire.Jobs.SyncLogJob",
+    "cron-expression": "30 12 * * * ",
+    "timezone": "Taipei Standard Time",
+    "queue": "jobs"
   },
+    {
+        "job-name": "每日中午13:20同步刷卡資料",
+        "job-type": "Hangfire.Topshelf.Jobs.SyncJob, CCM.Hangfire.Jobs.SyncLogJob",
+        "cron-expression": "20 13 * * * ",
+        "timezone": "Taipei Standard Time",
+        "queue": "jobs"
+    },
+    {
+        "job-name": "[精湛]設定庫存出庫類異單據關帳日為前一天",
+        "job-type": "Hangfire.Topshelf.Jobs.SetVCHCFGJob, CCM.Hangfire.Jobs.SetVCHCFGJob",
+        "cron-expression": "0 3 * * *",
+        "Timezone": "Taipei Standard Time",
+        "queue": "jobs",
+        "job-data": {
+            "ConnectionString": {
+                "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+                "ServerIP": "192.168.100.19",
+                "DBNM": "CCM_Main",
+                "User": "sa",
+                "Pwd": "6937937"
+            },
+            "ITEM": [
+                {
+                    "VCHTY": "B061",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "B091",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "F061",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "F062",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "F091",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "F092",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "F097",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "F098",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "I111",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "I112",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "I113",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "I114",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "I115",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "I116",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "I131",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "I132",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "I133",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "I134",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "I135",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "I136",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "I137",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "I139",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "I143",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "I170",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "M061",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "M062",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "M091",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "M092",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "M093",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "M097",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "M098",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "M099",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "V031",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "V032",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "V033",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "W091",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "W098",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "X062",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "X21",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "X22",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "X23",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "X24",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "X31",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "X32",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "X36",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "X37",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                }
+            ]
+        }
+    },
+    {
+        "job-name": "[昆山]設定庫存出庫類異單據關帳日為前一天",
+        "job-type": "Hangfire.Topshelf.Jobs.SetVCHCFGJob, CCM.Hangfire.Jobs.SetVCHCFGJob",
+        "cron-expression": "0 3 * * *",
+        "Timezone": "Taipei Standard Time",
+        "queue": "jobs",
+        "job-data": {
+            "ConnectionString": {
+                "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+                "ServerIP": "192.168.100.18",
+                "DBNM": "KSC_15",
+                "User": "sa",
+                "Pwd": "6937937"
+            },
+            "ITEM": [
+                {
+                    "VCHTY": "B061",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "B091",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "F061",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "F062",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "F091",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "F092",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "F097",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "F098",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "I111",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "I112",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "I113",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "I114",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "I115",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "I116",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "I131",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "I132",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "I133",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "I134",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "I136",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "I137",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "I139",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "I143",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "I170",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "M061",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "M062",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "M091",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "M092",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "M093",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "M097",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "M098",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "M099",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "V031",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "V032",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "V033",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "W091",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "W098",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "X062",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "X21",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "X22",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "X23",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "X24",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "X31",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "X32",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "X36",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                },
+                {
+                    "VCHTY": "X37",
+                    "Field": "CLS_DT",
+                    "Value": ""
+                }
+            ]
+        }
+    },
+    {
+        "job-name": "[精湛]檢查單別流水號是否有欠缺的部份",
+        "job-type": "Hangfire.Topshelf.Jobs.CheckWaterNumberJob, CCM.Hangfire.Jobs.CheckWaterNumberJob",
+        "cron-expression": "0 4 * * *",
+        "Timezone": "Taipei Standard Time",
+        "queue": "jobs",
+        "job-data": {
+            "ConnectionString": {
+                "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+                "ServerIP": "192.168.100.19",
+                "DBNM": "CCM_Main",
+                "User": "sa",
+                "Pwd": "6937937"
+            },
+            "StartDate": "2017/01/01",
+            "UseToDay": false
+        }
+    },
+    {
+        "job-name": "[全盈]檢查單別流水號是否有欠缺的部份",
+        "job-type": "Hangfire.Topshelf.Jobs.CheckWaterNumberJob, CCM.Hangfire.Jobs.CheckWaterNumberJob",
+        "cron-expression": "0 4 * * *",
+        "Timezone": "Taipei Standard Time",
+        "queue": "jobs",
+        "job-data": {
+            "ConnectionString": {
+                "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+                "ServerIP": "192.168.100.19",
+                "DBNM": "CCM_Main",
+                "User": "sa",
+                "Pwd": "6937937"
+            },
+            "StartDate": "2017/01/01",
+            "UseToDay": false
+        }
+    },
+    {
+        "job-name": "[昆山]檢查單別流水號是否有欠缺的部份",
+        "job-type": "Hangfire.Topshelf.Jobs.CheckWaterNumberJob, CCM.Hangfire.Jobs.CheckWaterNumberJob",
+        "cron-expression": "0 4 * * *",
+        "Timezone": "Taipei Standard Time",
+        "queue": "jobs",
+        "job-data": {
+            "ConnectionString": {
+                "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+                "ServerIP": "192.168.100.18",
+                "DBNM": "KSC_15",
+                "User": "sa",
+                "Pwd": "6937937"
+            },
+            "StartDate": "2017/01/01",
+            "UseToDay": false
+        }
+    },
+    {
+        "job-name": "[寧波]檢查單別流水號是否有欠缺的部份",
+        "job-type": "Hangfire.Topshelf.Jobs.CheckWaterNumberJob, CCM.Hangfire.Jobs.CheckWaterNumberJob",
+        "cron-expression": "0 4 * * *",
+        "Timezone": "Taipei Standard Time",
+        "queue": "jobs",
+        "job-data": {
+            "ConnectionString": {
+                "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+                "ServerIP": "192.168.100.18",
+                "DBNM": "NGB_15",
+                "User": "sa",
+                "Pwd": "6937937"
+            },
+            "StartDate": "2017/01/01",
+            "UseToDay": false
+        }
+    },
+    {
+        "job-name": "[東莞]檢查單別流水號是否有欠缺的部份",
+        "job-type": "Hangfire.Topshelf.Jobs.CheckWaterNumberJob, CCM.Hangfire.Jobs.CheckWaterNumberJob",
+        "cron-expression": "0 4 * * *",
+        "Timezone": "Taipei Standard Time",
+        "queue": "jobs",
+        "job-data": {
+            "ConnectionString": {
+                "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+                "ServerIP": "192.168.100.18",
+                "DBNM": "DAC_15",
+                "User": "sa",
+                "Pwd": "6937937"
+            },
+            "StartDate": "2017/01/01",
+            "UseToDay": false
+        }
+    },
+    {
+        "job-name": "執行同步台灣料號到大陸系統",
+        "job-type": "Hangfire.Topshelf.Jobs.SyncItemJob, CCM.Hangfire.Jobs.SyncItemJob",
+        "cron-expression": "0/10 7-22 * * 1-6",
+        "Timezone": "Taipei Standard Time",
+        "queue": "jobs",
+        "job-data": {
+            "ConnectionString": {
+                "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+                "ServerIP": "192.168.100.18",
+                "DBNM": "KSC_15",
+                "User": "sa",
+                "Pwd": "6937937"
+            },
+            "InsertTempToFormal": "InsertTempToFormal.SQL",
+            "InsertToTemp": "InsertToTemp.SQL",
+            "ToSubSQL": "KSCToSubsidiaries01.SQL"
+        }
+    } ,
+	
   {
-    "job-name": "同步刷卡資料",
-    "job-type": "Hangfire.Topshelf.Jobs.SyncLogSettings, CCM.Hangfire.Jobs.SyncLogJob",
-    "cron-expression": "*/1 * * * *",
-    // "cron-expression": "0 0 5 1/1 * ", 每日5點執行
-    "queue": "jobs",
-    "job-data": {
-      "Drive": "C"
-    }
-  },
-  {
-    "job-name": "設定庫存出庫類異單據關帳日為前一天",
-    "job-type": "Hangfire.Topshelf.Jobs.SetVCHCFGJob, CCM.Hangfire.Jobs.SetVCHCFGJob",
-    // 每日早上3點
-    "cron-expression": "0 3 * * *",
+    "job-name": "人事任用單自動確認作業",
+    "job-type": "Hangfire.Topshelf.Jobs.ConfirmFormJob, CCM.Hangfire.Jobs.ConfirmFormJob",
+    "cron-expression": "0 2 * * *",
     "Timezone": "Taipei Standard Time",
     "queue": "jobs",
     "job-data": {
@@ -38,23 +670,2127 @@
         "User": "sa",
         "Pwd": "6937937"
       },
-      "ITEM": [
-        {
-          "VCHTY": "F712",
-          "Field": "xxx",
-          "Value": "true"
-        },
-        {
-          "VCHTY": "F712",
-          "Field": "xxx",
-          "Value": "true"
-        },
-        {
-          "VCHTY": "F712",
-          "Field": "xxx",
-          "Value": "true"
-        }
-      ]
+      "Type": "0"
+    }
+  },
+  {
+    "job-name": "人事離職單自動確認作業",
+    "job-type": "Hangfire.Topshelf.Jobs.ConfirmFormJob, CCM.Hangfire.Jobs.ConfirmFormJob",
+    "cron-expression": "0 2 * * *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "HRSDBR53",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "Type": "1"
+    }
+  },
+  {
+    "job-name": "人事異動單自動確認作業",
+    "job-type": "Hangfire.Topshelf.Jobs.ConfirmFormJob, CCM.Hangfire.Jobs.ConfirmFormJob",
+    "cron-expression": "0 2 * * *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "HRSDBR53",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "Type": "2"
+    }
+  },
+  {
+    "job-name": "薪資異動單自動確認作業",
+    "job-type": "Hangfire.Topshelf.Jobs.ConfirmFormJob, CCM.Hangfire.Jobs.ConfirmFormJob",
+    "cron-expression": "0 2 * * *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "HRSDBR53",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "Type": "3"
+    }
+  },
+  {
+    "job-name": "健保變更單自動確認作業",
+    "job-type": "Hangfire.Topshelf.Jobs.ConfirmFormJob, CCM.Hangfire.Jobs.ConfirmFormJob",
+    "cron-expression": "0 2 * * *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "HRSDBR53",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "Type": "4"
+    }
+  },
+  {
+    "job-name": "勞保變更單自動確認作業",
+    "job-type": "Hangfire.Topshelf.Jobs.ConfirmFormJob, CCM.Hangfire.Jobs.ConfirmFormJob",
+    "cron-expression": "0 2 * * *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "HRSDBR53",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "Type": "5"
+    }
+  },
+  {
+    "job-name": "勞退變更單自動確認作業",
+    "job-type": "Hangfire.Topshelf.Jobs.ConfirmFormJob, CCM.Hangfire.Jobs.ConfirmFormJob",
+    "cron-expression": "0 2 * * *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "HRSDBR53",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "Type": "6"
+    }
+  },
+  ////////////////////////////////////////////////////////////////////
+  {
+    "job-name": "執行項目檢查 - 每小時執行",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 0/1 1/1 * *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "HOR010",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每日早上7:30執行",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "30 7 1/1 * *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "DAY010",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每日早上8:00執行",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 8 1/1 * *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "DAY020",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每日中午12:00執行",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 12 1/1 * *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "DAY030",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每日中午13:00執行",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 13 1/1 * *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "DAY040",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每日下午14:00執行",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 14 1/1 * *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "DAY050",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每日下午17:00執行",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 17 1/1 * *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "DAY060",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每日下午20:00執行",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 20 1/1 * *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "DAY070",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每日晚上23:00執行",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 23 1/1 * *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "DAY080",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每月01號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 1 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON010",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每月02號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 2 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON020",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每月03號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 3 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON030",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每月04號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 4 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON040",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每月05號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 5 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON050",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每月06號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 6 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON060",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每月07號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 7 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON070",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每月08號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 8 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON080",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每月09號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 9 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON090",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每月10號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 10 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON100",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每月11號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 11 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON110",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每月12號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 12 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON120",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每月13號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 13 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON130",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每月14號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 14 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON140",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每月15號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 15 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON150",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每月16號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 16 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON160",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每月17號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 17 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON170",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每月18號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 18 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON180",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每月19號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 19 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON190",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每月20號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 20 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON200",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每月21號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 21 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON210",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每月22號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 22 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON220",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每月23號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 23 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON230",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每月24號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 24 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON240",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每月25號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 25 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON250",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每月26號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 26 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON260",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每月27號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 27 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON270",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每月28號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 28 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON280",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每月29號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 29 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON290",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每月30號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 30 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON300",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每月31號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 31 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON310",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每週一早上07:00",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 7 * * MON",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "WEK010",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每週二早上07:00",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 7 * * TUE",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "WEK020",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每週三早上07:00",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 7 * * WED",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "WEK030",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每週四早上07:00",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 7 * * THU",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "WEK040",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每週五早上07:00",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 7 * * FRI",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "WEK050",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每週六早上07:00",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 7 * * SAT",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "WEK060",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每週日早上07:00",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 7 * * SUN",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "WEK070",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  {
+    "job-name": "執行項目檢查 - 每工作週上07:10",
+    "job-type": "Hangfire.Topshelf.Jobs.CheckRuleJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 7 * * MON-FRI",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "WEK005",
+      "Paras": {
+        "SmtpIP": "192.168.100.103",
+        "SmtpPort": "25",
+        "MCMail": "ErpSys@ccm3s.com",
+        "McName": "Mail Center 代理人",
+        "MCQTime": "10000",
+        "TryUnmber": 20
+      }
+    }
+  },
+  ////////////////////////////////////////////////////////////////////////////
+  {
+    "job-name": "執行項目維護 - 每小時執行",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 0/1 1/1 * *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "HOR010"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每日早上7:30執行",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "30 7 1/1 * *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "DAY010"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每日早上8:00執行",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 8 1/1 * *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "DAY020"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每日中午12:00執行",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 12 1/1 * *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "DAY030"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每日中午13:00執行",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 13 1/1 * *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "DAY040"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每日下午14:00執行",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 14 1/1 * *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "DAY050"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每日下午17:00執行",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 17 1/1 * *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "DAY060"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每日下午20:00執行",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 20 1/1 * *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "DAY070"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每日晚上23:00執行",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 23 1/1 * *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "DAY080"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每月01號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 1 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON010"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每月02號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 2 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON020"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每月03號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 3 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON030"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每月04號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 4 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON040"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每月05號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 5 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON050"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每月06號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 6 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON060"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每月07號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 7 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON070"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每月08號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 8 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON080"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每月09號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 9 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON090"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每月10號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 10 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON100"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每月11號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 11 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON110"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每月12號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 12 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON120"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每月13號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 13 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON130"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每月14號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 14 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON140"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每月15號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 15 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON150"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每月16號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 16 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON160"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每月17號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 17 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON170"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每月18號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 18 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON180"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每月19號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 19 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON190"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每月20號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 20 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON200"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每月21號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 21 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON210"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每月22號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 22 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON220"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每月23號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 23 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON230"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每月24號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 24 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON240"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每月25號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 25 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON250"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每月26號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 26 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON260"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每月27號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 27 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON270"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每月28號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 28 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON280"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每月29號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 29 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON290"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每月30號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 30 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON300"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每月31號早上09:00",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 9 31 1/1 *",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "MON310"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每週一早上07:00",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 7 * * MON",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "WEK010"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每週二早上07:00",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 7 * * TUE",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "WEK020"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每週三早上07:00",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 7 * * WED",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "WEK030"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每週四早上07:00",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 7 * * THU",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "WEK040"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每週五早上07:00",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 7 * * FRI",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "WEK050"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每週六早上07:00",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 7 * * SAT",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "WEK060"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每週日早上07:00",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 7 * * SUN",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "WEK070"
+    }
+  },
+  {
+    "job-name": "執行項目維護 - 每工作週上07:10",
+    "job-type": "Hangfire.Topshelf.Jobs.DBMaintainJob, CCM.Hangfire.Jobs.CheckRuleJob",
+    "cron-expression": "0 7 * * MON-FRI",
+    "Timezone": "Taipei Standard Time",
+    "queue": "jobs",
+    "job-data": {
+      "ConnectionString": {
+        "StringFormat": "Data Source={0};Initial Catalog={1};Persist Security Info=True;User ID={2};Password={3}",
+        "ServerIP": "192.168.100.11",
+        "DBNM": "SysManR8",
+        "User": "sa",
+        "Pwd": "6937937"
+      },
+      "GID": "WEK005"
     }
   }
 ]

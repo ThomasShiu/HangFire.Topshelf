@@ -7,3 +7,9 @@ Update HR_CHGTOR Set CLDT = GetDate() , FMSTS = 'D' where FMNO = '{1}';
 
 -- 更新人事資料狀態
 UPDATE HR_EMPLYM SET LLFDT = '{0:yyyy/MM/dd}'  ,TFMNO = '{1}' ,C_STA ='{2}'   WHERE EMPLYID ='{3}';
+
+-- 更新EIP 帳號狀態
+UPDATE EIP.dbo.Sys_User SET F_EnabledMark = 0 WHERE F_Account = '{3}';
+
+-- 更新ERP 帳號失效
+UPDATE [192.168.100.19].CCM_Main.dbo.USRNO SET EXP_DT = '{0:yyyy/MM/dd}' WHERE USR_NO = '{3}';

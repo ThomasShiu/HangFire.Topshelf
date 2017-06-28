@@ -126,6 +126,7 @@
     <Compile Include="ConfirmFactory.cs" />
     <Compile Include="ConfirmFormJob.cs" />
     <Compile Include="H0451Service.cs" />
+    <Compile Include="H0458Service.cs" />
     <Compile Include="H0452Service.cs" />
     <Compile Include="H0453Service.cs" />
     <Compile Include="H0454Service.cs" />
@@ -157,6 +158,9 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Script\HR_CHGMEMBER.sql">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="Script\HR_LPSCHM_Cr.sql">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

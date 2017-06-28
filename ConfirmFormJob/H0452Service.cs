@@ -13,39 +13,43 @@ namespace Hangfire.Topshelf.Jobs
   /// </summary>
   public class H0452Service:IConfirmAction
   {
-    public void Confirm(Callback context, string connectionstring, DateTime execDate)
-    {
-      // 計時用
-      Stopwatch sw = new Stopwatch();
-      sw.Reset();
-      sw.Start();
-      using (IDbConnection Conn = new SqlConnection(connectionstring))
-      {
-        var cSQL = $"Select FMNO, EMPLYID, FLDT From HR_CHGTOR where FMSTS ='B' and FLDT <='{execDate:yyyy/MM/dd}'";
-        var qry = Conn.Query<HR_CHGTOR_Query>(cSQL).AsList<HR_CHGTOR_Query>();
-        if (qry.Count != 0)
+        public void Confirm(Callback context, string connectionstring, DateTime execDate)
         {
-          //  var tran = Conn.BeginTransaction();
-          try
-          {
-            var csql = SQLSyntaxHelper.ReadSQLFile("HR_CHGTOR_Cr.sql");
-            foreach (var item in qry)
+            // 計時用
+            Stopwatch sw = new Stopwatch();
+            sw.Reset();
+            sw.Start();
+            using (IDbConnection Conn = new SqlConnection(connectionstring))
             {
-              // C_STA(狀態):A:在職;B:留職停薪;C:留職不停薪;D:離職
-              var sql = string.Format(csql, item.FLDT, item.FMNO, "D", item.EMPLYID);
-              Conn.Execute(sql);
+                #region 人員離職作業
+                var cSQL = $"Select FMNO, EMPLYID, FLDT From HR_CHGTOR where FMSTS ='B' and FLDT <='{execDate:yyyy/MM/dd}'";
+                var qry = Conn.Query<HR_CHGTOR_Query>(cSQL).AsList<HR_CHGTOR_Query>();
+                if (qry.Count != 0)
+                {
+                    //  var tran = Conn.BeginTransaction();
+                    try
+                    {
+                        var csql = SQLSyntaxHelper.ReadSQLFile("HR_CHGTOR_Cr.sql");
+                        foreach (var item in qry)
+                        {
+                            // C_STA(狀態):A:在職;B:留職停薪;C:留職不停薪;D:離職
+                            var sql = string.Format(csql, item.FLDT, item.FMNO, "D", item.EMPLYID);
+                            Conn.Execute(sql);
+                        }
+                        //    tran.Rollback();
+                    }
+                    catch (Exception)
+                    {
+                        //     tran.Rollback();
+                        throw;
+                    }
+                }
+                #endregion
+               
             }
-            //    tran.Rollback();
-          } catch (Exception)
-          {
-            //     tran.Rollback();
-            throw;
-          }
+            sw.Stop();
+            context($"確認離職單完成,花費時間為：{sw.ElapsedMilliseconds}");
         }
-      }
-      sw.Stop();
-      context($"確認離職單完成,花費時間為：{sw.ElapsedMilliseconds}");
-    }
 
     /// <summary>
     /// 取消確認離職單

@@ -11,7 +11,7 @@ namespace Hangfire.Topshelf.Jobs
     [DisplayName("人事異動作業自動確認作業")]
     public void Execute(PerformContext context)
     {
-      context.WriteLine($"{DateTime.Now:yyyy/MM/dd HH:mm:ss} SampleJobA Running ...");
+      context.WriteLine($"{DateTime.Now:yyyy/MM/dd HH:mm:ss} 人事異動作業 ConfirmFormJob Running ...");
       // Arrange
       // todo 這里要處理密碼加密的問題
       var connString = context.GetJobData<DBConnectionstring>("ConnectionString");

@@ -2,6 +2,7 @@
 {
   public class HR_PAYCHD_Query
   {
+
     public string EMPLYID { get; set; }
 
     public decimal FITEM { get; set; }

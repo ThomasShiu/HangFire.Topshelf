@@ -17,8 +17,9 @@ if ('{0}'='D')
  Delete From HR_PAYPMS where EMPLYID ='{1}' And PMS_NO ='{3}';  -- D:刪除
 
 if ('{0}'='U')
-UPdate HR_PAYPMS Set AMT = '{4}' Where EMPLYID = '{1}' And PMS_NO ='{3}'; -- U:修改
+Update HR_PAYPMS Set AMT = '{4}' Where EMPLYID = '{1}' And PMS_NO ='{3}'; -- U:修改
 
 if ('{0}'='A')
 INSERT INTO HR_PAYPMS ( EMPLYID , FITEM , PMS_NO , AMT , C_OVT , C_FRL , C_TAX )  -- A:新增
-               VALUES ( '{1}'   , '{2}' , '{3}'  ,'{4}' ,'{5}' ,'{6}'   ,'{7}' )
+               VALUES ( '{1}'   , '{2}' , '{3}'  ,'{4}' ,'{5}' ,'{6}'   ,'{7}' );
+

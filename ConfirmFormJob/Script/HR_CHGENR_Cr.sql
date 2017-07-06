@@ -74,3 +74,35 @@ SELECT NEMPLYID , EMPLYNM , DEPID,'','' ,Rtrim(NEMPLYID)+'@ccm3s.com',
           'N'     ,'N'   ,'N'    ,'N'    ,'Y'    ,'N'    ,'N'    ,'N'    ,'N'    ,'N'
 from HR_CHGENR
 where FMNO = '{0}';
+
+Delete From [192.168.100.19].CCM_Main.dbo.USRNO where USR_NO ='{1}';
+INSERT INTO [192.168.100.19].CCM_Main.dbo.USRNO
+(USR_NO, USR_NM,  EMP_NO, USR_PW, C_SUPER,  EFF_DT,  PW_DT, VLD_DAY) 
+SELECT NEMPLYID , EMPLYNM , NEMPLYID,NEMPLYID,'N',GETDATE(),DATEADD (MONTH , 3 , GETDATE() ),90
+from HR_CHGENR
+where FMNO = '{0}';
+
+-- 同步BPM
+INSERT INTO [192.168.100.18].WebBPM.dbo.FSe7en_Org_MemberInfo
+(AccountID, [Password], DisplayName,EMail,DefaultLang, DefaultTimezone, Terminated)
+SELECT NEMPLYID ,NEMPLYID, EMPLYNM ,Rtrim(NEMPLYID)+'@ccm3s.com', 'zh-tw',1,0
+from HR_CHGENR
+where FMNO = '{0}';
+
+INSERT INTO [192.168.100.18].WebEIP.dbo.FSe7en_Org_MemberInfo
+(AccountID, [Password], DisplayName,EMail,DefaultLang, DefaultTimezone, Terminated)
+SELECT NEMPLYID ,NEMPLYID, EMPLYNM ,Rtrim(NEMPLYID)+'@ccm3s.com', 'zh-tw',1,0
+from HR_CHGENR
+where FMNO = '{0}';
+
+INSERT INTO [192.168.100.18].WebBPM.dbo.FSe7en_Org_MemberInfo
+(AccountID, [Password], DisplayName,EMail,DefaultLang, DefaultTimezone, Terminated)
+SELECT NEMPLYID ,NEMPLYID, EMPLYNM ,Rtrim(NEMPLYID)+'@ccm3s.com', 'zh-tw',1,0
+from HR_CHGENR
+where FMNO = '{0}';
+
+INSERT INTO [192.168.100.18].WebEIP.dbo.FSe7en_Org_MemberInfo
+(AccountID, [Password], DisplayName,EMail,DefaultLang, DefaultTimezone, Terminated)
+SELECT NEMPLYID ,NEMPLYID, EMPLYNM ,Rtrim(NEMPLYID)+'@ccm3s.com', 'zh-tw',1,0
+from HR_CHGENR
+where FMNO = '{0}';

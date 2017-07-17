@@ -89,19 +89,19 @@ SELECT NEMPLYID ,NEMPLYID, EMPLYNM ,Rtrim(NEMPLYID)+'@ccm3s.com', 'zh-tw',1,0
 from HR_CHGENR
 where FMNO = '{0}';
 
-INSERT INTO [192.168.100.18].WebEIP.dbo.FSe7en_Org_MemberInfo
+INSERT INTO [192.168.100.18].WebEIP5.dbo.FSe7en_Org_MemberInfo
 (AccountID, [Password], DisplayName,EMail,DefaultLang, DefaultTimezone, Terminated)
 SELECT NEMPLYID ,NEMPLYID, EMPLYNM ,Rtrim(NEMPLYID)+'@ccm3s.com', 'zh-tw',1,0
 from HR_CHGENR
 where FMNO = '{0}';
 
-INSERT INTO [192.168.100.18].WebBPM.dbo.FSe7en_Org_MemberInfo
+INSERT INTO [192.168.100.18].WebBPM_Test.dbo.FSe7en_Org_MemberInfo
 (AccountID, [Password], DisplayName,EMail,DefaultLang, DefaultTimezone, Terminated)
 SELECT NEMPLYID ,NEMPLYID, EMPLYNM ,Rtrim(NEMPLYID)+'@ccm3s.com', 'zh-tw',1,0
 from HR_CHGENR
 where FMNO = '{0}';
 
-INSERT INTO [192.168.100.18].WebEIP.dbo.FSe7en_Org_MemberInfo
+INSERT INTO [192.168.100.18].WebEIP5_Test.dbo.FSe7en_Org_MemberInfo
 (AccountID, [Password], DisplayName,EMail,DefaultLang, DefaultTimezone, Terminated)
 SELECT NEMPLYID ,NEMPLYID, EMPLYNM ,Rtrim(NEMPLYID)+'@ccm3s.com', 'zh-tw',1,0
 from HR_CHGENR

@@ -31,7 +31,7 @@ BEGIN
         INSERT INTO HR_FAHIS                                                                         
               (EMPLYID , IDNO , CHGDT , CHG_TY , NOM , CNAME , BIRTHDT , ADDDT , REMARK , RMK , 
                C_SOURCE, ADD_TYPE , ADD_RATE , ADD_AMT)                                         
-        SELECT '{0}'   , IDNO , '{2:yyyy/MM/dd}' , CHG_TY , NOM , CNAME , BIRTHDT , '{3:yyyy/MM/dd}'  ,REMARK  , RMK , 
+        SELECT '{0}'   , IDNO , '{3}' , CHG_TY , NOM , CNAME , BIRTHDT , '{3}'  ,REMARK  , RMK , 
                '1'     , ADD_TYPE , ADD_RATE , ADD_AMT                                        
           FROM HR_HISCHD                                                                        
          WHERE FMNO = '{4}' and IDNO = '{1}'          
@@ -53,21 +53,21 @@ END ELSE BEGIN
                 ADDDT , RELDT , INSURT , INSFEE , REMARK , RMK ,                                       
                 C_SOURCE , ADD_TYPE , ADD_RATE , ADD_AMT                                               
            FROM HR_FAHIS M                                                                             
-          WHERE EMPLYID ='{0}' AND IDNO ='{1}' AND CHGDT = '{2:yyyy/MM/dd}'                                               
+          WHERE EMPLYID ='{0}' AND IDNO ='{1}' AND CHGDT = '{2}'                                               
             AND (SELECT COUNT(1) FROM HR_FAHISREG WHERE EMPLYID =M.EMPLYID AND CHGDT =M.CHGDT) = 0 
           -- 清除記錄記錄檔                                                         
-          DELETE FROM HR_FAHIS WHERE EMPLYID ='{0}' AND IDNO ='{1}' AND CHGDT = '{2:yyyy/MM/dd}';
+          DELETE FROM HR_FAHIS WHERE EMPLYID ='{0}' AND IDNO ='{1}' AND CHGDT = '{2}';
           -- 新增記錄到記錄檔去                                                                                 ' 
           INSERT INTO HR_FAHIS                                                                           
                  (EMPLYID , IDNO , CHGDT , CHG_TY , NOM , CNAME , BIRTHDT , ADDDT , REMARK , RMK ,   
                   C_SOURCE, ADD_TYPE , ADD_RATE , ADD_AMT)                                           
-          SELECT '{0}'    , IDNO , '{2:yyyy/MM/dd}' , CHG_TY , NOM , CNAME , BIRTHDT , '{3:yyyy/MM/dd}' ,REMARK  , RMK ,   
+          SELECT '{0}'    , IDNO , '{2}' , CHG_TY , NOM , CNAME , BIRTHDT , '{3}' ,REMARK  , RMK ,   
                   '1'     , ADD_TYPE , ADD_RATE , ADD_AMT                                          
             FROM HR_HISCHD                                                                          
           WHERE FMNO = '{4}' and IDNO = '{1}'      
           -- 設定退保日期
           if EXISTS(SELECT Count(1) FROM HR_HISCHD WHERE FMNO='{4}' AND IDNO = '{1}' and CHG_TY = 'B')  
-             UPDATE HR_FAHIS SET RELDT = ADDDT, ADDDT= NULL  WHERE EMPLYID ='{0}' AND IDNO ='{1}' and CHGDT = '{2:yyyy/MM/dd}'
+             UPDATE HR_FAHIS SET RELDT = ADDDT, ADDDT= NULL  WHERE EMPLYID ='{0}' AND IDNO ='{1}' and CHGDT = '{2}'
      END
    END   -- 判斷現有記錄狀態加保 or 現為調整補助
    if EXISTS(SELECT Count(1) FROM HR_FAHIS WHERE EMPLYID ='{0}' AND IDNO = '{1}' AND CHG_TY in('A','C'))  -- 判斷現有記錄狀態退保
@@ -81,15 +81,15 @@ END ELSE BEGIN
                 ADDDT , RELDT , INSURT , INSFEE , REMARK , RMK ,                                       
                 C_SOURCE , ADD_TYPE , ADD_RATE , ADD_AMT                                               
            FROM HR_FAHIS M                                                                             
-          WHERE EMPLYID ='{0}' AND IDNO ='{1}' AND CHGDT = '{2:yyyy/MM/dd}'                                               
+          WHERE EMPLYID ='{0}' AND IDNO ='{1}' AND CHGDT = '{2}'                                               
             AND (SELECT COUNT(1) FROM HR_FAHISREG WHERE EMPLYID =M.EMPLYID AND CHGDT =M.CHGDT) = 0 
           -- 清除記錄記錄檔                                                         
-          DELETE FROM HR_FAHIS WHERE EMPLYID ='{0}' AND IDNO ='{1}' AND CHGDT = '{2:yyyy/MM/dd}';
+          DELETE FROM HR_FAHIS WHERE EMPLYID ='{0}' AND IDNO ='{1}' AND CHGDT = '{2}';
           -- 新增記錄到記錄檔去                                                                                 ' 
           INSERT INTO HR_FAHIS                                                                           
                  (EMPLYID , IDNO , CHGDT , CHG_TY , NOM , CNAME , BIRTHDT , ADDDT , REMARK , RMK ,   
                   C_SOURCE, ADD_TYPE , ADD_RATE , ADD_AMT)                                           
-          SELECT '{0}'    , IDNO , '{2:yyyy/MM/dd}' , CHG_TY , NOM , CNAME , BIRTHDT , '{3:yyyy/MM/dd}' ,REMARK  , RMK ,   
+          SELECT '{0}'    , IDNO , '{2}' , CHG_TY , NOM , CNAME , BIRTHDT , '{3}' ,REMARK  , RMK ,   
                   '1'     , ADD_TYPE , ADD_RATE , ADD_AMT                                          
           FROM HR_HISCHD 
          WHERE FMNO = '{4}' and IDNO = '{1}'

@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26403.7
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "10_應用區", "10_應用區", "{2936A1CD-5F9A-4963-814A-9470C3DF0335}"
 EndProject
@@ -57,6 +57,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfirmFormJob", "ConfirmFormJob\ConfirmFormJob.csproj", "{7CD8FCD1-97C1-4C2D-A73E-C45416BAEA1D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfirmFormJobTests", "ConfirmFormJobTests\ConfirmFormJobTests.csproj", "{54D9C55A-D2D1-4016-8B55-3EB03AD99310}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncMTConnectJob", "SyncMTConnect\SyncMTConnectJob.csproj", "{98FB57CF-C5EE-43D7-BD38-14DDFDFFE4C1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -132,6 +134,10 @@ Global
 		{54D9C55A-D2D1-4016-8B55-3EB03AD99310}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{54D9C55A-D2D1-4016-8B55-3EB03AD99310}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{54D9C55A-D2D1-4016-8B55-3EB03AD99310}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98FB57CF-C5EE-43D7-BD38-14DDFDFFE4C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98FB57CF-C5EE-43D7-BD38-14DDFDFFE4C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98FB57CF-C5EE-43D7-BD38-14DDFDFFE4C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98FB57CF-C5EE-43D7-BD38-14DDFDFFE4C1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -154,5 +160,9 @@ Global
 		{D784B647-E789-45A1-80F4-E39842688F51} = {686B88F6-C6F6-49D9-BBFF-0F5164A4BAAB}
 		{7CD8FCD1-97C1-4C2D-A73E-C45416BAEA1D} = {1EDCD82A-CE19-4846-AE5C-DA71FE2583F4}
 		{54D9C55A-D2D1-4016-8B55-3EB03AD99310} = {686B88F6-C6F6-49D9-BBFF-0F5164A4BAAB}
+		{98FB57CF-C5EE-43D7-BD38-14DDFDFFE4C1} = {1EDCD82A-CE19-4846-AE5C-DA71FE2583F4}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5B70A87C-3FF2-4D37-859C-2C8295800FED}
 	EndGlobalSection
 EndGlobal

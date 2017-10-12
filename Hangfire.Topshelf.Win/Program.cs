@@ -26,7 +26,7 @@ namespace Hangfire.Topshelf.Win
                 .WriteTo.LiterateConsole()
                 .WriteTo.RollingFile(HangfireSettings.Instance.LogFilePath)
                 .CreateLogger();
-            // 起動Service
+            // 啟動Service
             return (int)HostFactory.Run(x =>
             {
                 x.UseSerilog(Log.Logger); // 將Topshelf log 傳給Serilog

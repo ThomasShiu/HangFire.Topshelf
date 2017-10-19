@@ -14,13 +14,13 @@ namespace Hangfire.Topshelf.Jobs
     /// </summary>
     /// <param name="context"></param>
     /// <param name="execDate">執行日期</param>
-    void Confirm(Callback context, string connectionstring, DateTime execDate);
+    void SyncData(Callback context, string connectionstring);
 
     /// <summary>
     /// 取消確認作業
     /// </summary>
     /// <param name="context"></param>
     /// <param name="execDate">執行日期</param>
-    void UnConfirm(Callback context, string connectionstring, DateTime execDate);
+    void UnSyncData(Callback context, string connectionstring);
   }
 }

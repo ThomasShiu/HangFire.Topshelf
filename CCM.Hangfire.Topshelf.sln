@@ -60,6 +60,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfirmFormJobTests", "Conf
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncMTConnectJob", "SyncMTConnect\SyncMTConnectJob.csproj", "{98FB57CF-C5EE-43D7-BD38-14DDFDFFE4C1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncMTConnect.Tests", "SyncMTConnect.Tests\SyncMTConnect.Tests.csproj", "{239E551F-B15A-43F5-9C00-8721C8DBBE40}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -138,6 +140,10 @@ Global
 		{98FB57CF-C5EE-43D7-BD38-14DDFDFFE4C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{98FB57CF-C5EE-43D7-BD38-14DDFDFFE4C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{98FB57CF-C5EE-43D7-BD38-14DDFDFFE4C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{239E551F-B15A-43F5-9C00-8721C8DBBE40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{239E551F-B15A-43F5-9C00-8721C8DBBE40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{239E551F-B15A-43F5-9C00-8721C8DBBE40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{239E551F-B15A-43F5-9C00-8721C8DBBE40}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -161,6 +167,7 @@ Global
 		{7CD8FCD1-97C1-4C2D-A73E-C45416BAEA1D} = {1EDCD82A-CE19-4846-AE5C-DA71FE2583F4}
 		{54D9C55A-D2D1-4016-8B55-3EB03AD99310} = {686B88F6-C6F6-49D9-BBFF-0F5164A4BAAB}
 		{98FB57CF-C5EE-43D7-BD38-14DDFDFFE4C1} = {1EDCD82A-CE19-4846-AE5C-DA71FE2583F4}
+		{239E551F-B15A-43F5-9C00-8721C8DBBE40} = {686B88F6-C6F6-49D9-BBFF-0F5164A4BAAB}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5B70A87C-3FF2-4D37-859C-2C8295800FED}

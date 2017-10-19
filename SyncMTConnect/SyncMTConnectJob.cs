@@ -8,10 +8,10 @@ namespace Hangfire.Topshelf.Jobs
 {
   public class SyncMTConnectJob : IRecurringJob
   {
-    [DisplayName("人事異動作業自動確認作業")]
+    [DisplayName("MTConnect Data Sync")]
     public void Execute(PerformContext context)
     {
-      context.WriteLine($"{DateTime.Now:yyyy/MM/dd HH:mm:ss} 人事異動作業 ConfirmFormJob Running ...");
+      context.WriteLine($"{DateTime.Now:yyyy/MM/dd HH:mm:ss}  SyncMTConnectJob Running ...");
       // Arrange
       // todo 這里要處理密碼加密的問題
       var connString = context.GetJobData<DBConnectionstring>("ConnectionString");
@@ -19,7 +19,7 @@ namespace Hangfire.Topshelf.Jobs
       var today = DateTime.Today;
       ISyncMTCAction service = SyncMTCFactory.GetService(action);
       // 執行     
-      service.Confirm(context.WriteLine, connString.connectionstring, today);
+      service.SyncData(context.WriteLine, connString.connectionstring);
       // 回報
       context.WriteLine("完成");
     }
